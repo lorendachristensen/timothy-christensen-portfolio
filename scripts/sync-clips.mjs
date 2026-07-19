@@ -1,13 +1,22 @@
 /**
- * sync-clips.mjs — hands-off capture of Timothy Christensen's O'Colly articles.
+ * sync-clips.mjs — hands-off, self-healing capture of Timothy Christensen's O'Colly work.
  *
- * Polls the O'Colly RSS feed (the publisher-sanctioned syndication channel, which is
- * NOT behind the bot-block that walls off article pages), finds any articles not already
- * in clips.json, downloads each new feature photo, and appends them. Idempotent: running
- * it repeatedly only ever ADDS genuinely new clips.
+ * Each run:
+ *  1) DISCOVER  — poll the O'Colly RSS feed (sanctioned syndication channel, never 429s) for
+ *                 any newly-published articles; grab headline/date/byline/summary/feature photo.
+ *  2) ARCHIVE   — for clips without an owned full-text copy yet, fetch the article page and
+ *                 extract the full body + photographer credit, and write a self-contained
+ *                 fallback page to fulltext/<id>.html. Paced (BACKFILL_LIMIT per run) so we
+ *                 never hammer the source.
+ *  3) HEAL      — re-check every clip's O'Colly URL. Only a definitive 404/410 marks it dead
+ *                 (a timeout/429/500 is treated as still-live, so a transient hiccup never
+ *                 wrongly flips the site to the fallback).
  *
- * Pure Node (global fetch + fs) — no dependencies, so it runs anywhere (GitHub Actions, cron, local).
- * Usage: node scripts/sync-clips.mjs
+ * The site links "Read full story" -> live O'Colly URL while healthy, else -> the archived
+ * fallback page. So new articles appear automatically and removed ones self-heal to our copy.
+ *
+ * Pure Node (global fetch + fs), no dependencies. Usage: node scripts/sync-clips.mjs
+ * Env: BACKFILL_LIMIT (default 6), SKIP_LIVECHECK=1 to skip stage 3.
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -16,74 +25,138 @@ import { dirname, join } from 'node:path';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CLIPS = join(ROOT, 'clips.json');
 const IMAGES = join(ROOT, 'images');
+const FULLTEXT = join(ROOT, 'fulltext');
 const FEED = 'https://www.ocolly.com/search/?f=rss&sd=desc&l=50&nsa=eedition&q=Timothy+Christensen';
-const UA = 'Mozilla/5.0 (compatible; tc-portfolio-sync)';
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36';
+const BACKFILL_LIMIT = parseInt(process.env.BACKFILL_LIMIT || '6', 10);
 
+const ents = (s) => s
+  .replace(/&#8217;|&#x2019;/g, '’').replace(/&#8216;/g, '‘')
+  .replace(/&#8220;/g, '“').replace(/&#8221;/g, '”')
+  .replace(/&#8230;/g, '…').replace(/&#8212;/g, '—').replace(/&#8211;/g, '–')
+  .replace(/&nbsp;/g, ' ').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&amp;/g, '&');
+const strip = (s) => ents(s.replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim();
+const esc = (s) => (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const clean = (s) => (s || '').replace(/<!\[CDATA\[|\]\]>/g, '').replace(/&amp;/g, '&').trim();
-const pick = (block, tag) => {
-  const m = block.match(new RegExp('<' + tag + '[^>]*>([\\s\\S]*?)<\\/' + tag + '>'));
-  return m ? clean(m[1]) : '';
-};
+const pick = (block, tag) => { const m = block.match(new RegExp('<' + tag + '[^>]*>([\\s\\S]*?)<\\/' + tag + '>')); return m ? clean(m[1]) : ''; };
 const enc = (block) => { const m = block.match(/<enclosure[^>]*url="([^"]+)"/); return m ? clean(m[1]) : ''; };
 
 const KNOWN_SECTIONS = new Set(['football', 'womens_basketball', 'mens_basketball', 'baseball', 'equestrian', 'wrestling']);
-const section = (url) => {
-  const p = new URL(url).pathname.split('/').filter(Boolean);
-  const ai = p.findIndex((x) => x.startsWith('article_'));
-  const c = ai >= 2 ? p[ai - 2] : 'sports';
-  return KNOWN_SECTIONS.has(c) ? c : 'sports';
-};
-const slug = (url) => {
-  const p = new URL(url).pathname.split('/').filter(Boolean);
-  const ai = p.findIndex((x) => x.startsWith('article_'));
-  return p[ai - 1] || 'clip';
-};
+const section = (url) => { const p = new URL(url).pathname.split('/').filter(Boolean); const ai = p.findIndex((x) => x.startsWith('article_')); const c = ai >= 2 ? p[ai - 2] : 'sports'; return KNOWN_SECTIONS.has(c) ? c : 'sports'; };
+const slug = (url) => { const p = new URL(url).pathname.split('/').filter(Boolean); const ai = p.findIndex((x) => x.startsWith('article_')); return p[ai - 1] || 'clip'; };
 const iso = (d) => new Date(d).toISOString().slice(0, 10);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms)); // politeness between requests
 
+const JUNK = /out of date|recommend switching|sign up for|subscribe to|load comments|watch now|most popular|thank you for reading/i;
+function extractArticle(html) {
+  const bi = html.search(/itemprop=["']articleBody["']/i);
+  let paras = [];
+  if (bi !== -1) {
+    const region = html.slice(bi, bi + 60000);
+    for (const m of region.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)) {
+      const t = strip(m[1]);
+      if (JUNK.test(t)) break;            // stop at the first footer/junk paragraph
+      if (t.length > 30) paras.push(t);
+    }
+  }
+  const cm = html.match(/class="[^"]*credit[^"]*"[^>]*>([\s\S]*?)<\/[a-z]+>/i);
+  // credit is often "Name, The O'Colly, @handle" or "Name // @handle" — keep just the name
+  let credit = cm ? strip(cm[1]) : '';
+  credit = credit.split(/\s*(?:,|\/\/|\/|@|·|\|)\s*/)[0].trim();
+  if (/^(the )?o.?colly$|^provided$|^courtesy$/i.test(credit)) credit = ''; // not a photographer name
+  return { body: paras.join('\n\n'), paras, credit };
+}
+
+function fallbackPage(clip, paras) {
+  const img = clip.localImage || clip.imageUrlRemote || '';
+  const body = paras.map((p) => `      <p>${esc(p)}</p>`).join('\n');
+  const cred = clip.photoCredit ? `<figcaption>Photo by ${esc(clip.photoCredit)} / The O'Colly</figcaption>` : '';
+  return `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(clip.headline)} — Timothy Christensen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--brand:#FF6A00;--ink:#0A0A0B;--paper:#F7F6F3;--border:#e3e1dc}
+  *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Newsreader,Georgia,serif;line-height:1.72}
+  .wrap{max-width:680px;margin:0 auto;padding:32px 20px 80px}
+  .kicker{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--brand)}
+  h1{font-family:Oswald,sans-serif;text-transform:uppercase;line-height:1.0;font-size:40px;margin:.3em 0 .2em}
+  .meta{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#555;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:22px}
+  figure{margin:0 0 24px}figure img{width:100%;height:auto;border:2px solid var(--ink);display:block}
+  figcaption{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#666;padding-top:6px}
+  p{font-size:19px;margin:0 0 1.1em}
+  .archived-note{background:#fff;border:2px solid var(--ink);padding:14px 16px;margin-bottom:26px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.5}
+  .archived-note b{color:var(--brand)}
+  footer{margin-top:36px;border-top:1px solid var(--border);padding-top:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#777}
+  a{color:var(--brand)}
+</style></head>
+<body><div class="wrap">
+  <div class="kicker">Archived clip · The O'Colly</div>
+  <h1>${esc(clip.headline)}</h1>
+  <div class="meta">By ${esc(clip.author || 'Timothy Christensen')} &nbsp;/&nbsp; The O'Colly &nbsp;/&nbsp; ${esc(clip.date)}</div>
+  <div class="archived-note">This is an <b>archived copy</b> preserved for Timothy Christensen's portfolio. The original was published in <i>The O'Colly</i>${clip.url ? ` at <a href="${esc(clip.url)}">this link</a>` : ''}; this copy is shown because the original page is no longer reachable.</div>
+  ${img ? `<figure><img src="${esc(img)}" alt="${esc(clip.headline)}">${cred}</figure>` : ''}
+${body}
+  <footer>&ldquo;${esc(clip.headline)}.&rdquo; By Timothy Christensen. The O'Colly, ${esc(clip.date)}. Original: ${esc(clip.url)}</footer>
+</div></body></html>`;
+}
+
+async function fetchText(url) {
+  try { const r = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow' }); return { ok: r.ok, status: r.status, text: r.ok ? await r.text() : '' }; }
+  catch { return { ok: false, status: 0, text: '' }; }
+}
+
+// ---------- run ----------
 const data = JSON.parse(readFileSync(CLIPS, 'utf8'));
 const known = new Set(data.clips.map((c) => c.url));
 
-const res = await fetch(FEED, { headers: { 'User-Agent': UA } });
-if (!res.ok) { console.error('RSS fetch failed:', res.status); process.exit(1); }
-const xml = await res.text();
-const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => m[1]);
-
+// 1) DISCOVER
+const feed = await fetchText(FEED);
+if (!feed.ok) { console.error('RSS fetch failed:', feed.status); process.exit(1); }
 let added = 0;
-for (const b of items) {
-  const author = pick(b, 'dc:creator');
-  const url = pick(b, 'link');
-  if (!/timothy christensen/i.test(author)) continue; // his bylines only
-  if (!url.includes('/article_')) continue;           // real articles only
-  if (known.has(url)) continue;                        // already have it
-
-  const date = iso(pick(b, 'pubDate'));
-  const id = date + '-' + slug(url);
-  const imageUrlRemote = enc(b);
+for (const b of [...feed.text.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => m[1])) {
+  const author = pick(b, 'dc:creator'); const url = pick(b, 'link');
+  if (!/timothy christensen/i.test(author) || !url.includes('/article_') || known.has(url)) continue;
+  const date = iso(pick(b, 'pubDate')); const id = date + '-' + slug(url); const imageUrlRemote = enc(b);
   let localImage = '';
-  if (imageUrlRemote) {
-    try {
-      const ir = await fetch(imageUrlRemote.split('?')[0], { headers: { 'User-Agent': UA } }); // strip ?resize -> original
-      if (ir.ok) {
-        if (!existsSync(IMAGES)) mkdirSync(IMAGES, { recursive: true });
-        writeFileSync(join(IMAGES, id + '.jpg'), Buffer.from(await ir.arrayBuffer()));
-        localImage = 'images/' + id + '.jpg';
-      }
-    } catch { /* leave blank; the card can fall back to imageUrlRemote */ }
-  }
+  if (imageUrlRemote) { const ir = await fetch(imageUrlRemote.split('?')[0], { headers: { 'User-Agent': UA } }).catch(() => null); if (ir && ir.ok) { if (!existsSync(IMAGES)) mkdirSync(IMAGES, { recursive: true }); writeFileSync(join(IMAGES, id + '.jpg'), Buffer.from(await ir.arrayBuffer())); localImage = 'images/' + id + '.jpg'; } }
+  data.clips.push({ id, headline: pick(b, 'title'), date, section: section(url), type: 'article', author: author.replace(/,\s*Staff Reporter$/i, '').trim(), url, excerpt: pick(b, 'description'), imageUrlRemote, localImage, photoCredit: '', fulltext: '', wordCount: 0, live: true, lastChecked: '', waybackUrl: '', status: 'indexed' });
+  known.add(url); added++; console.log('DISCOVER + ' + date + '  ' + pick(b, 'title'));
+}
 
-  data.clips.push({
-    id, headline: pick(b, 'title'), date, section: section(url), type: 'article',
-    author: author.replace(/,\s*Staff Reporter$/i, '').trim(), url,
-    excerpt: pick(b, 'description'), imageUrlRemote, localImage,
-    photoCredit: '', waybackUrl: '', status: 'indexed',
-  });
-  known.add(url);
-  added++;
-  console.log('  + ' + date + '  ' + pick(b, 'title'));
+// 2) ARCHIVE full text + credit (paced)
+if (!existsSync(FULLTEXT)) mkdirSync(FULLTEXT, { recursive: true });
+let archived = 0;
+for (const c of data.clips) {
+  if (c.fulltext) continue;
+  if (archived >= BACKFILL_LIMIT) break;
+  const a = await fetchText(c.url);
+  if (!a.ok) { console.log('ARCHIVE skip (' + a.status + ') ' + c.id); continue; }
+  const { paras, credit } = extractArticle(a.text);
+  if (!paras.length) { console.log('ARCHIVE no-body ' + c.id); continue; }
+  if (credit && !c.photoCredit) c.photoCredit = credit;
+  c.wordCount = paras.join(' ').split(/\s+/).length;
+  writeFileSync(join(FULLTEXT, c.id + '.html'), fallbackPage(c, paras));
+  c.fulltext = 'fulltext/' + c.id + '.html';
+  archived++; console.log('ARCHIVE ✓ ' + c.wordCount + 'w credit=[' + (credit || '?') + '] ' + c.id);
+  await sleep(500);
+}
+
+// 3) HEAL — re-check link health (only 404/410 -> dead)
+if (!process.env.SKIP_LIVECHECK) {
+  for (const c of data.clips) {
+    let r; try { r = await fetch(c.url, { method: 'HEAD', headers: { 'User-Agent': UA }, redirect: 'follow' }); } catch { r = null; }
+    if (r && r.ok) c.live = true;
+    else if (r && (r.status === 404 || r.status === 410)) { c.live = false; console.log('HEAL dead(' + r.status + ') -> fallback: ' + c.id); }
+    // any other status/error: leave c.live unchanged (transient)
+    c.lastChecked = iso(new Date().toISOString());
+    await sleep(400);
+  }
 }
 
 data.clips.sort((a, b) => b.date.localeCompare(a.date));
 data._meta.totalArticles = data.clips.length;
 data._meta.lastSync = new Date().toISOString();
 writeFileSync(CLIPS, JSON.stringify(data, null, 2));
-console.log(added ? `Added ${added} new clip(s). Total: ${data.clips.length}.` : `No new clips. Total: ${data.clips.length}.`);
+console.log(`Done. +${added} new, +${archived} full-text archived, ${data.clips.length} total.`);

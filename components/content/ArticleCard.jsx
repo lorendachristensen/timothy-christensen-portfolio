@@ -13,6 +13,8 @@ export function ArticleCard({
   date,
   image,
   href = '#',
+  target,
+  rel,
   style = {},
 }) {
   const onEnter = (e) => {
@@ -26,6 +28,8 @@ export function ArticleCard({
   return (
     <a
       href={href}
+      target={target}
+      rel={rel}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
       style={{

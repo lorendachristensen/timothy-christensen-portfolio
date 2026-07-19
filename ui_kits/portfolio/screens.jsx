@@ -1,33 +1,58 @@
-// Sample portfolio data + the four screens. Composes design-system components
-// from window[NS]. Content is representative sample work for a student journalist.
+// Portfolio screens — data-driven from /clips.json (produced/updated by scripts/sync-clips.mjs).
+// Composes design-system primitives from window[NS]; clip cards are rendered by a local
+// ClipCard so each card can open the story in a new tab and fall back to the archived copy.
 const NS = window.TimothyChristensenPortfolioDesignSystem_d29e8f;
-const { Button, Tag, Kicker, SectionHeading, ArticleCard, VideoCard, Byline, StatBlock } = NS;
+const { Button, Tag, Kicker, SectionHeading, VideoCard, Byline, StatBlock } = NS;
 
-const ARTICLES = [
-  { kind: 'article', category: "Football", title: "Cowboys stun No. 12 Longhorns in Stillwater thriller", outlet: "The O'Colly", date: "Oct 2025" },
-  { kind: 'article', category: "Men's Basketball", title: "Freshman guard's career night lifts OSU past K-State", outlet: "The O'Colly", date: "Feb 2026" },
-  { kind: 'video',   category: "Press Conference", title: "Asking Gundy about the fourth-quarter QB rotation", outlet: "The O'Colly", date: "Mar 2026" },
-  { kind: 'article', category: "Wrestling", title: "Inside the Cowboys' pursuit of another national title", outlet: "The O'Colly", date: "Jan 2026" },
-  { kind: 'social',  category: "Gameday", title: "Live thread: Bedlam returns to Boone Pickens Stadium", outlet: "@tchristensen", date: "Nov 2025" },
-  { kind: 'article', category: "Feature", title: "The walk-on who became a captain: Marcus Reed's road", outlet: "The O'Colly", date: "Sep 2025" },
-];
-
-const VIDEOS = [
-  { title: "Asking Gundy about the QB rotation", meta: "Press conference · Mar 2026", duration: "0:47" },
-  { title: "Postgame with the freshman guard after 28 points", meta: "Locker room · Feb 2026", duration: "1:12" },
-  { title: "Wrestling media day one-on-one", meta: "Media day · Jan 2026", duration: "0:58" },
-];
+/* ------------------------------ data ------------------------------ */
+function useClips() {
+  const [clips, setClips] = React.useState(window.__CLIPS__ || null);
+  React.useEffect(() => {
+    if (window.__CLIPS__) { setClips(window.__CLIPS__); return; }
+    fetch('/clips.json')
+      .then((r) => r.json())
+      .then((d) => { window.__CLIPS__ = d.clips || []; setClips(window.__CLIPS__); })
+      .catch(() => setClips([]));
+  }, []);
+  return clips;
+}
+const SECTION_LABEL = { football: 'Football', womens_basketball: "Women's Basketball", mens_basketball: "Men's Basketball", baseball: 'Baseball', equestrian: 'Equestrian', wrestling: 'Wrestling', sports: 'Sports' };
+const pretty = (s) => SECTION_LABEL[s] || 'Sports';
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const fmtDate = (iso) => { const p = (iso || '').split('-'); return p.length === 3 ? MONTHS[+p[1] - 1] + ' ' + p[0] : iso; };
+// link out to O'Colly while the URL is live; fall back to our archived copy when it 404s.
+const clipHref = (c) => (c.live === false ? '/' + c.fulltext : c.url);
+const clipImg = (c) => (c.localImage ? '/' + c.localImage : (c.imageUrlRemote || ''));
 
 function Wrap({ children, style }) {
   return <div style={{ maxWidth: 'var(--maxw-page)', margin: '0 auto', padding: '0 var(--space-6)', ...style }}>{children}</div>;
 }
 
+function ClipCard({ clip }) {
+  const image = clipImg(clip);
+  const onEnter = (e) => { e.currentTarget.style.transform = 'translate(-3px,-3px)'; e.currentTarget.style.boxShadow = 'var(--shadow-hard)'; };
+  const onLeave = (e) => { e.currentTarget.style.transform = 'translate(0,0)'; e.currentTarget.style.boxShadow = 'none'; };
+  return (
+    <a href={clipHref(clip)} target="_blank" rel="noopener noreferrer" onMouseEnter={onEnter} onMouseLeave={onLeave}
+      style={{ display: 'flex', flexDirection: 'column', background: 'var(--surface-card)', border: '2px solid var(--ink-950)', borderRadius: 'var(--radius-sm)', textDecoration: 'none', color: 'inherit', transition: 'transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out)', overflow: 'hidden' }}>
+      <div style={{ aspectRatio: '16/10', background: image ? `#000 center/cover url("${image}")` : 'var(--ink-100)', borderBottom: '2px solid var(--ink-950)', position: 'relative' }}>
+        <div style={{ position: 'absolute', top: '10px', left: '10px' }}><Tag kind="article">Article</Tag></div>
+      </div>
+      <div style={{ padding: 'var(--space-4)', display: 'flex', flexDirection: 'column', gap: '10px', flex: 1 }}>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--brand)' }}>{pretty(clip.section)}</span>
+        <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, textTransform: 'uppercase', fontSize: 'var(--fs-h)', lineHeight: 1.05, letterSpacing: 'var(--tracking-tight)', color: 'var(--text-strong)', margin: 0 }}>{clip.headline}</h3>
+        <div style={{ marginTop: 'auto', fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-muted)' }}>The O'Colly · {fmtDate(clip.date)}{clip.live === false ? ' · archived' : ''}</div>
+      </div>
+    </a>
+  );
+}
+
 /* ------------------------------ HOME ------------------------------ */
 function Home({ onNav }) {
-  const lead = ARTICLES[0];
+  const clips = useClips();
+  const lead = clips && clips[0];
   return (
     <div>
-      {/* Hero */}
       <div style={{ background: 'var(--ink-950)', color: 'var(--white)', paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}>
         <Wrap>
           <div style={{ marginBottom: 'var(--space-5)' }}><Kicker>Sports Media · Oklahoma State</Kicker></div>
@@ -44,31 +69,27 @@ function Home({ onNav }) {
         </Wrap>
       </div>
 
-      {/* Featured */}
       <Wrap style={{ marginTop: 'var(--space-8)' }}>
         <SectionHeading kicker="Featured" title="Latest story" action={<Button variant="ghost" size="sm" onClick={() => onNav('Work')}>All work</Button>} />
-        <div onClick={() => onNav('Article')} style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 'var(--space-6)', marginTop: 'var(--space-6)', cursor: 'pointer', alignItems: 'stretch' }}>
-          <div style={{ aspectRatio: '16/10', background: 'var(--ink-100)', border: '2px solid var(--ink-950)', position: 'relative' }}>
-            <div style={{ position: 'absolute', top: '14px', left: '14px' }}><Tag kind="article">Article</Tag></div>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 'var(--space-4)' }}>
-            <Kicker rule={false}>{lead.category}</Kicker>
-            <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, textTransform: 'uppercase', fontSize: 'var(--fs-display-m)', lineHeight: 1.0, letterSpacing: '-0.01em', margin: 0, color: 'var(--text-strong)' }}>{lead.title}</h3>
-            <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-body)', lineHeight: 1.6, color: 'var(--text-body)', margin: 0 }}>
-              A raucous night in Stillwater as the Cowboys knocked off a ranked opponent for the first time in three seasons.
-            </p>
-            <Byline outlet={lead.outlet} date={lead.date} readTime="4 min read" />
-          </div>
-        </div>
+        {lead && (
+          <a href={clipHref(lead)} target="_blank" rel="noopener noreferrer" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 'var(--space-6)', marginTop: 'var(--space-6)', textDecoration: 'none', color: 'inherit', alignItems: 'stretch' }}>
+            <div style={{ aspectRatio: '16/10', background: clipImg(lead) ? `#000 center/cover url("${clipImg(lead)}")` : 'var(--ink-100)', border: '2px solid var(--ink-950)', position: 'relative' }}>
+              <div style={{ position: 'absolute', top: '14px', left: '14px' }}><Tag kind="article">Article</Tag></div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 'var(--space-4)' }}>
+              <Kicker rule={false}>{pretty(lead.section)}</Kicker>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, textTransform: 'uppercase', fontSize: 'var(--fs-display-m)', lineHeight: 1.0, letterSpacing: '-0.01em', margin: 0, color: 'var(--text-strong)' }}>{lead.headline}</h3>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-body)', lineHeight: 1.6, color: 'var(--text-body)', margin: 0 }}>{lead.excerpt}</p>
+              <Byline outlet="The O'Colly" date={fmtDate(lead.date)} />
+            </div>
+          </a>
+        )}
       </Wrap>
 
-      {/* Recent grid */}
       <Wrap style={{ marginTop: 'var(--space-8)' }}>
         <SectionHeading kicker="Recent" title="More clips" />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-5)', marginTop: 'var(--space-6)' }}>
-          {ARTICLES.slice(1, 4).map((a, i) => (
-            <ArticleCard key={i} {...a} href="#" />
-          ))}
+          {(clips || []).slice(1, 4).map((c) => <ClipCard key={c.id} clip={c} />)}
         </div>
       </Wrap>
     </div>
@@ -77,25 +98,25 @@ function Home({ onNav }) {
 
 /* ------------------------------ WORK ------------------------------ */
 function Work() {
+  const clips = useClips();
   const [filter, setFilter] = React.useState('All');
-  const filters = ['All', 'Article', 'Video', 'Social'];
-  const shown = ARTICLES.filter((a) => filter === 'All' || a.kind === filter.toLowerCase());
+  if (!clips) return <Wrap style={{ paddingTop: 'var(--space-8)' }}><SectionHeading kicker="Portfolio" title="Published work" /><p style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginTop: 'var(--space-5)' }}>Loading clips…</p></Wrap>;
+  const cats = ['All', ...Array.from(new Set(clips.map((c) => pretty(c.section))))];
+  const shown = filter === 'All' ? clips : clips.filter((c) => pretty(c.section) === filter);
   return (
     <Wrap style={{ paddingTop: 'var(--space-8)' }}>
       <SectionHeading kicker="Portfolio" title="Published work" />
-      <div style={{ display: 'flex', gap: 'var(--space-2)', marginTop: 'var(--space-5)' }}>
-        {filters.map((f) => (
+      <div style={{ display: 'flex', gap: 'var(--space-2)', marginTop: 'var(--space-5)', flexWrap: 'wrap' }}>
+        {cats.map((f) => (
           <button key={f} onClick={() => setFilter(f)} style={{
             fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
-            padding: '7px 14px', cursor: 'pointer', borderRadius: 'var(--radius-sm)',
-            border: '2px solid var(--ink-950)',
-            background: filter === f ? 'var(--ink-950)' : 'transparent',
-            color: filter === f ? 'var(--white)' : 'var(--ink-950)',
+            padding: '7px 14px', cursor: 'pointer', borderRadius: 'var(--radius-sm)', border: '2px solid var(--ink-950)',
+            background: filter === f ? 'var(--ink-950)' : 'transparent', color: filter === f ? 'var(--white)' : 'var(--ink-950)',
           }}>{f}</button>
         ))}
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-5)', marginTop: 'var(--space-6)' }}>
-        {shown.map((a, i) => <ArticleCard key={i} {...a} href="#" />)}
+        {shown.map((c) => <ClipCard key={c.id} clip={c} />)}
       </div>
     </Wrap>
   );
@@ -107,54 +128,26 @@ function VideoPage() {
     <Wrap style={{ paddingTop: 'var(--space-8)' }}>
       <SectionHeading kicker="On camera" title="Press &amp; video" />
       <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-lead)', color: 'var(--text-muted)', maxWidth: '54ch', marginTop: 'var(--space-4)' }}>
-        Clips of me on the beat — asking questions at press conferences and postgame availabilities.
+        Clips of Timothy on the beat — asking questions at press conferences and postgame availabilities. Coming soon.
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', marginTop: 'var(--space-6)', maxWidth: '760px' }}>
-        {VIDEOS.map((v, i) => <VideoCard key={i} {...v} href="#" />)}
-      </div>
     </Wrap>
   );
 }
 
-/* ------------------------------ ARTICLE ------------------------------ */
+/* ------------------------------ ARTICLE (unused; clips link out) ------------------------------ */
 function Article({ onNav }) {
   return (
-    <article>
-      <div style={{ background: 'var(--ink-950)', color: 'var(--white)', paddingTop: 'var(--space-7)', paddingBottom: 'var(--space-7)' }}>
-        <div style={{ maxWidth: 'var(--maxw-read)', margin: '0 auto', padding: '0 var(--space-5)' }}>
-          <div style={{ marginBottom: 'var(--space-4)' }}><Kicker>Football · Game Recap</Kicker></div>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, textTransform: 'uppercase', fontSize: 'var(--fs-display-l)', lineHeight: 0.98, letterSpacing: '-0.01em', margin: 0 }}>
-            Cowboys stun No. 12 Longhorns in Stillwater thriller
-          </h1>
-          <div style={{ marginTop: 'var(--space-5)' }}>
-            <Byline outlet="The O'Colly" date="Oct 12, 2025" readTime="4 min read" style={{ color: 'var(--ink-300)' }} />
-          </div>
-        </div>
-      </div>
-      <div style={{ maxWidth: 'var(--maxw-read)', margin: '0 auto', padding: '0 var(--space-5)' }}>
-        <div style={{ aspectRatio: '16/9', background: 'var(--ink-100)', border: '2px solid var(--ink-950)', margin: 'var(--space-6) 0' }}></div>
-        {[
-          "STILLWATER — The final whistle hadn't yet echoed off the Boone Pickens rafters when the student section began its slow roll toward the field.",
-          "Oklahoma State's 27-24 upset of No. 12 Texas on Saturday was the program's first win over a ranked opponent in three seasons, and it came the way the Cowboys have promised all year: with a defense that refused to break and a freshman quarterback who refused to blink.",
-          "\"We talked all week about earning the moment,\" head coach Mike Gundy said afterward. \"These kids earned it.\"",
-          "The go-ahead drive covered 71 yards in nine plays, capped by a 12-yard strike with 1:04 remaining that sent the crowd of 55,000 into a frenzy that lasted well past midnight.",
-        ].map((p, i) => (
-          <p key={i} style={{ fontFamily: 'var(--font-serif)', fontSize: '19px', lineHeight: 'var(--lh-read)', color: 'var(--text-body)', margin: '0 0 var(--space-5)' }}>{p}</p>
-        ))}
-        <blockquote style={{ borderLeft: '3px solid var(--brand)', paddingLeft: 'var(--space-4)', margin: 'var(--space-6) 0', fontFamily: 'var(--font-display)', fontWeight: 500, textTransform: 'uppercase', fontSize: '1.75rem', lineHeight: 1.1, color: 'var(--text-strong)' }}>
-          "Some nights the story writes itself."
-        </blockquote>
-        <div style={{ borderTop: '2px solid var(--border-strong)', marginTop: 'var(--space-7)', paddingTop: 'var(--space-5)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 'var(--space-4)' }}>
-          <Byline outlet="The O'Colly" date="Oct 12, 2025" />
-          <Button variant="ghost" size="sm" onClick={() => onNav('Work')}>← Back to work</Button>
-        </div>
-      </div>
-    </article>
+    <Wrap style={{ paddingTop: 'var(--space-8)' }}>
+      <SectionHeading kicker="Portfolio" title="Published work" action={<Button variant="ghost" size="sm" onClick={() => onNav('Work')}>All work</Button>} />
+    </Wrap>
   );
 }
 
 /* ------------------------------ ABOUT ------------------------------ */
 function About() {
+  const clips = useClips();
+  const count = clips ? clips.length : 40;
+  const sports = clips ? new Set(clips.map((c) => pretty(c.section))).size : 5;
   return (
     <div>
       <div style={{ background: 'var(--ink-950)', color: 'var(--white)', paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}>
@@ -166,7 +159,7 @@ function About() {
                 Timothy<br/>Christensen
               </h1>
               <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-lead)', lineHeight: 1.55, color: 'var(--ink-300)', marginTop: 'var(--space-5)' }}>
-                I'm a Sports Media major at Oklahoma State University and a staff writer for The O'Colly, OSU's independent student newspaper. I cover football, basketball and wrestling — on the page and on camera.
+                I'm a Sports Media major at Oklahoma State University and a staff writer for The O'Colly, OSU's independent student newspaper. I cover football, basketball, baseball and more — on the page and on camera.
               </p>
               <div style={{ marginTop: 'var(--space-6)' }}><Button variant="primary">Download résumé</Button></div>
             </div>
@@ -176,9 +169,9 @@ function About() {
       </div>
       <Wrap style={{ marginTop: 'var(--space-8)' }}>
         <div style={{ display: 'flex', gap: 'var(--space-8)', flexWrap: 'wrap', paddingBottom: 'var(--space-7)', borderBottom: '2px solid var(--border-strong)' }}>
-          <StatBlock value="40+" label="Published bylines" />
-          <StatBlock value="12" label="Video clips" />
-          <StatBlock value="3" label="Sports covered" />
+          <StatBlock value={count + '+'} label="Published bylines" />
+          <StatBlock value={sports + ''} label="Sports covered" />
+          <StatBlock value="2024" label="First byline" />
           <StatBlock value="2028" label="Expected grad" />
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-8)', marginTop: 'var(--space-7)' }}>

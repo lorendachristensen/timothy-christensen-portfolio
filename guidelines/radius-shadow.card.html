@@ -1,0 +1,25 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Radius, Border & Shadow" subtitle="Square edges, 2px black rule, hard offset shadow" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:20px;background:var(--paper);font-family:var(--font-mono);font-size:10px;color:var(--text-muted);}
+  .row{display:flex;gap:24px;align-items:center;}
+  .c{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .box{width:74px;height:56px;background:var(--white);display:flex;align-items:center;justify-content:center;}
+  .r-sm{border-radius:var(--radius-sm);border:2px solid var(--ink-950);}
+  .r-md{border-radius:var(--radius-md);border:2px solid var(--ink-950);}
+  .rule{border:none;border-top:2px solid var(--ink-950);width:74px;height:0;}
+  .sh-card{box-shadow:var(--shadow-card);border:1px solid var(--border);}
+  .sh-hard{box-shadow:var(--shadow-hard);border:2px solid var(--ink-950);}
+  .sh-orange{box-shadow:var(--shadow-hard-orange);border:2px solid var(--ink-950);}
+</style></head>
+<body>
+  <div class="row">
+    <div class="c"><div class="box r-sm">2px</div>radius-sm</div>
+    <div class="c"><div class="box r-md">4px</div>radius-md</div>
+    <div class="c"><div class="rule"></div>2px rule</div>
+    <div class="c"><div class="box sh-card"></div>shadow-card</div>
+    <div class="c"><div class="box sh-hard"></div>shadow-hard</div>
+    <div class="c"><div class="box sh-orange"></div>hard-orange</div>
+  </div>
+</body></html>

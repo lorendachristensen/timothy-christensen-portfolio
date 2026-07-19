@@ -1,0 +1,35 @@
+/* ==========================================================================
+   TYPOGRAPHY — Timothy Christensen Portfolio
+   Display = Oswald (condensed, UPPERCASE for impact).
+   Body/UI  = IBM Plex Sans. Long-form = Newsreader serif. Labels = Plex Mono.
+   ========================================================================== */
+
+:root {
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-sans:    'IBM Plex Sans', system-ui, sans-serif;
+  --font-serif:   'Newsreader', Georgia, serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Type scale (display uses tight tracking + line-height) */
+  --fs-display-xl: 5rem;      /* 80px hero */
+  --fs-display-l:  3.5rem;    /* 56px */
+  --fs-display-m:  2.5rem;    /* 40px */
+  --fs-display-s:  1.75rem;   /* 28px */
+  --fs-h:          1.375rem;  /* 22px card headline */
+  --fs-lead:       1.25rem;   /* 20px lede */
+  --fs-body:       1rem;      /* 16px */
+  --fs-sm:         0.875rem;  /* 14px */
+  --fs-kicker:     0.75rem;   /* 12px eyebrow */
+
+  --lh-tight:   0.95;  /* @kind other */
+  --lh-snug:    1.15;  /* @kind other */
+  --lh-body:    1.6;  /* @kind other */
+  --lh-read:    1.72; /* @kind other */
+
+  --tracking-kicker: 0.16em;
+  --tracking-tight:  -0.01em;
+  --weight-display:  700;
+
+  /* Semantic role tokens */
+  --text-kicker-transform: uppercase;
+}

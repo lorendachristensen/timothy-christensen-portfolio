@@ -1,0 +1,59 @@
+/* ==========================================================================
+   COLORS — Timothy Christensen Portfolio
+   Bold sports-broadcast palette. Orange + ink + high contrast neutrals.
+   Orange is drawn from Oklahoma State school spirit (his primary outlet, the
+   O'Colly) but is an original brand value, not an official OSU asset.
+   ========================================================================== */
+
+:root {
+  /* --- Brand primary: broadcast orange --- */
+  --orange-50:  #FFF3EA;
+  --orange-100: #FFE0C7;
+  --orange-300: #FFB067;
+  --orange-500: #FF6A00;   /* primary */
+  --orange-600: #E85D00;   /* hover / press */
+  --orange-700: #B84900;
+
+  /* --- Ink / neutrals (warm-black broadcast blacks) --- */
+  --ink-950: #0A0A0B;      /* near-black surface */
+  --ink-900: #141416;
+  --ink-800: #1E1E22;
+  --ink-700: #2C2C32;
+  --ink-600: #47474F;
+  --ink-500: #6B6B75;
+  --ink-400: #94949E;
+  --ink-300: #C2C2C9;
+  --ink-200: #E2E2E6;
+  --ink-100: #EFEFF1;
+  --paper:   #F7F6F3;      /* warm off-white page */
+  --white:   #FFFFFF;
+
+  /* --- Semantic aliases --- */
+  --brand:            var(--orange-500);
+  --brand-hover:      var(--orange-600);
+  --brand-press:      var(--orange-700);
+  --brand-soft:       var(--orange-50);
+
+  --bg-page:          var(--paper);
+  --bg-inverse:       var(--ink-950);
+  --surface-card:     var(--white);
+  --surface-sunken:   var(--ink-100);
+
+  --text-strong:      var(--ink-950);
+  --text-body:        var(--ink-800);
+  --text-muted:       var(--ink-500);
+  --text-on-brand:    var(--white);
+  --text-on-inverse:  var(--white);
+  --text-inverse-mut: var(--ink-400);
+
+  --border:           var(--ink-200);
+  --border-strong:    var(--ink-950);   /* the signature hard 2px rule */
+  --border-inverse:   var(--ink-700);
+
+  /* content-type accents (kept subtle; orange stays the hero) */
+  --tag-article: var(--ink-950);
+  --tag-video:   var(--orange-500);
+  --tag-social:  var(--ink-600);
+
+  --focus-ring:  var(--orange-500);
+}

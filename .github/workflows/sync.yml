@@ -1,0 +1,36 @@
+name: Sync O'Colly clips
+
+# Hands-off: runs every morning, pulls any newly-published articles from the O'Colly
+# RSS feed into clips.json (+ downloads their photos), commits, and pushes. Vercel's Git
+# integration auto-deploys on the push, so new clips appear on the site within minutes.
+# You can also trigger it by hand from the Actions tab (workflow_dispatch).
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # 12:00 UTC daily (~6-7am Central)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Pull new clips from O'Colly RSS
+        run: node scripts/sync-clips.mjs
+      - name: Commit & push if anything changed
+        run: |
+          git config user.name "clip-sync-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No new clips."
+          else
+            git commit -m "chore: sync new O'Colly clips [skip ci]"
+            git push
+          fi

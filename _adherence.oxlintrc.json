@@ -1,0 +1,314 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/content/**",
+              "components/core/**",
+              "ui_kits/portfolio/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Oswald|IBM Plex Sans|IBM Plex Mono|Newsreader))/i]",
+        "message": "Font not provided by the design system. Available: Oswald, IBM Plex Sans, IBM Plex Mono, Newsreader."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArticleCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:kind|category|title|outlet|date|image|href|style|key|ref|className|style|children)$/]",
+        "message": "<ArticleCard> doesn't accept that prop. Declared props: kind, category, title, outlet, date, image, href, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArticleCard'] > JSXAttribute[name.name='kind'] > Literal[value!=/^(?:article|video|social)$/]",
+        "message": "<ArticleCard> kind must be one of 'article' | 'video' | 'social'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|as|children|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, as, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|ghost)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='as'] > Literal[value!=/^(?:button|a)$/]",
+        "message": "<Button> as must be one of 'button' | 'a'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Byline'] > JSXAttribute > JSXIdentifier[name!=/^(?:author|outlet|date|readTime|style|key|ref|className|style|children)$/]",
+        "message": "<Byline> doesn't accept that prop. Declared props: author, outlet, date, readTime, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Kicker'] > JSXAttribute > JSXIdentifier[name!=/^(?:rule|color|children|key|ref|className|style|children)$/]",
+        "message": "<Kicker> doesn't accept that prop. Declared props: rule, color, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute > JSXIdentifier[name!=/^(?:kicker|title|action|style|key|ref|className|style|children)$/]",
+        "message": "<SectionHeading> doesn't accept that prop. Declared props: kicker, title, action, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StatBlock'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|label|inverse|style|key|ref|className|style|children)$/]",
+        "message": "<StatBlock> doesn't accept that prop. Declared props: value, label, inverse, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute > JSXIdentifier[name!=/^(?:kind|children|key|ref|className|style|children)$/]",
+        "message": "<Tag> doesn't accept that prop. Declared props: kind, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute[name.name='kind'] > Literal[value!=/^(?:article|video|social|topic)$/]",
+        "message": "<Tag> kind must be one of 'article' | 'video' | 'social' | 'topic'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='VideoCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|meta|duration|image|href|style|key|ref|className|style|children)$/]",
+        "message": "<VideoCard> doesn't accept that prop. Declared props: title, meta, duration, image, href, style."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "ArticleCard": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "Byline": {
+        "replaces": []
+      },
+      "Kicker": {
+        "replaces": []
+      },
+      "SectionHeading": {
+        "replaces": []
+      },
+      "StatBlock": {
+        "replaces": []
+      },
+      "Tag": {
+        "replaces": []
+      },
+      "VideoCard": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--bg-inverse",
+      "--bg-page",
+      "--border",
+      "--border-inverse",
+      "--border-strong",
+      "--border-w",
+      "--border-w-hard",
+      "--brand",
+      "--brand-hover",
+      "--brand-press",
+      "--brand-soft",
+      "--dur-fast",
+      "--dur-med",
+      "--ease-out",
+      "--focus-ring",
+      "--font-display",
+      "--font-mono",
+      "--font-sans",
+      "--font-serif",
+      "--fs-body",
+      "--fs-display-l",
+      "--fs-display-m",
+      "--fs-display-s",
+      "--fs-display-xl",
+      "--fs-h",
+      "--fs-kicker",
+      "--fs-lead",
+      "--fs-sm",
+      "--gutter",
+      "--ink-100",
+      "--ink-200",
+      "--ink-300",
+      "--ink-400",
+      "--ink-500",
+      "--ink-600",
+      "--ink-700",
+      "--ink-800",
+      "--ink-900",
+      "--ink-950",
+      "--lh-body",
+      "--lh-read",
+      "--lh-snug",
+      "--lh-tight",
+      "--maxw-page",
+      "--maxw-read",
+      "--orange-100",
+      "--orange-300",
+      "--orange-50",
+      "--orange-500",
+      "--orange-600",
+      "--orange-700",
+      "--paper",
+      "--radius-md",
+      "--radius-none",
+      "--radius-pill",
+      "--radius-sm",
+      "--shadow-card",
+      "--shadow-hard",
+      "--shadow-hard-orange",
+      "--shadow-sm",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--surface-card",
+      "--surface-sunken",
+      "--tag-article",
+      "--tag-social",
+      "--tag-video",
+      "--text-body",
+      "--text-inverse-mut",
+      "--text-kicker-transform",
+      "--text-muted",
+      "--text-on-brand",
+      "--text-on-inverse",
+      "--text-strong",
+      "--tracking-kicker",
+      "--tracking-tight",
+      "--weight-display",
+      "--white"
+    ],
+    "tokenKinds": {
+      "--orange-50": "color",
+      "--orange-100": "color",
+      "--orange-300": "color",
+      "--orange-500": "color",
+      "--orange-600": "color",
+      "--orange-700": "color",
+      "--ink-950": "color",
+      "--ink-900": "color",
+      "--ink-800": "color",
+      "--ink-700": "color",
+      "--ink-600": "color",
+      "--ink-500": "color",
+      "--ink-400": "color",
+      "--ink-300": "color",
+      "--ink-200": "color",
+      "--ink-100": "color",
+      "--paper": "color",
+      "--white": "color",
+      "--brand": "color",
+      "--brand-hover": "color",
+      "--brand-press": "color",
+      "--brand-soft": "color",
+      "--bg-page": "color",
+      "--bg-inverse": "color",
+      "--surface-card": "color",
+      "--surface-sunken": "color",
+      "--text-strong": "font",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-on-brand": "font",
+      "--text-on-inverse": "font",
+      "--text-inverse-mut": "font",
+      "--border": "color",
+      "--border-strong": "color",
+      "--border-inverse": "color",
+      "--tag-article": "color",
+      "--tag-video": "color",
+      "--tag-social": "color",
+      "--focus-ring": "color",
+      "--font-display": "font",
+      "--font-sans": "font",
+      "--font-serif": "font",
+      "--font-mono": "font",
+      "--fs-display-xl": "spacing",
+      "--fs-display-l": "spacing",
+      "--fs-display-m": "spacing",
+      "--fs-display-s": "spacing",
+      "--fs-h": "spacing",
+      "--fs-lead": "spacing",
+      "--fs-body": "spacing",
+      "--fs-sm": "spacing",
+      "--fs-kicker": "spacing",
+      "--lh-tight": "other",
+      "--lh-snug": "other",
+      "--lh-body": "other",
+      "--lh-read": "other",
+      "--tracking-kicker": "font",
+      "--tracking-tight": "font",
+      "--weight-display": "font",
+      "--text-kicker-transform": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--radius-none": "radius",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-pill": "radius",
+      "--border-w": "spacing",
+      "--border-w-hard": "spacing",
+      "--shadow-sm": "shadow",
+      "--shadow-card": "shadow",
+      "--shadow-hard": "shadow",
+      "--shadow-hard-orange": "shadow",
+      "--maxw-page": "spacing",
+      "--maxw-read": "spacing",
+      "--gutter": "color",
+      "--ease-out": "other",
+      "--dur-fast": "other",
+      "--dur-med": "other"
+    },
+    "fontFamilies": [
+      "IBM Plex Mono",
+      "IBM Plex Sans",
+      "Newsreader",
+      "Oswald"
+    ]
+  }
+}

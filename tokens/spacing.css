@@ -1,0 +1,44 @@
+/* ==========================================================================
+   SPACING, RADII, SHADOW, LAYOUT — Timothy Christensen Portfolio
+   The brand leans on HARD edges: 2px black rules, minimal radius, flat cards
+   with a crisp offset shadow on hover (broadcast lower-third feel).
+   ========================================================================== */
+
+:root {
+  /* 4px base scale */
+  --space-1: 0.25rem;   /* 4  */
+  --space-2: 0.5rem;    /* 8  */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.5rem;    /* 24 */
+  --space-6: 2rem;      /* 32 */
+  --space-7: 3rem;      /* 48 */
+  --space-8: 4rem;      /* 64 */
+  --space-9: 6rem;      /* 96 */
+
+  /* Radii — deliberately small; the brand is square */
+  --radius-none: 0;
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-pill: 999px;   /* only for status dots / round tags */
+
+  /* Borders */
+  --border-w:      1px;
+  --border-w-hard: 2px;   /* signature rule */
+
+  /* Shadows — crisp, not blurry. Offset "printed" look. */
+  --shadow-sm:   0 1px 2px rgba(10,10,11,0.08);
+  --shadow-card: 0 2px 0 rgba(10,10,11,0.06);
+  --shadow-hard: 6px 6px 0 var(--ink-950);      /* hover pop on cards */
+  --shadow-hard-orange: 6px 6px 0 var(--orange-500);
+
+  /* Layout */
+  --maxw-page:   1200px;
+  --maxw-read:   680px;   /* article measure */
+  --gutter:      var(--space-5);
+
+  /* Motion */
+  --ease-out:  cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --dur-fast:  120ms; /* @kind other */
+  --dur-med:   220ms; /* @kind other */
+}

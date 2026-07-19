@@ -17,7 +17,7 @@
     "totalArticles": 40,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-07-19T17:04:06.640Z"
+    "lastSync": "2026-07-19T17:05:54.712Z"
   },
   "clips": [
     {
@@ -82,11 +82,11 @@
       "excerpt": "FRISCO, Texas — The Big 12 held the first half of its annual Media Days on Tuesday, during which the media spoke with Oklahoma State football players, including quarterback Drew Mestemaker, running back Caleb Hawkins, linebacker Ethan Wesloski and defensive&#8230;",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/8/e4/8e41e032-b7fe-4f79-a87a-46ad656027ae/69e4473825ad8.image.jpg?resize=300%2C200",
       "localImage": "images/2026-07-10-were-going-to-win-wherever-we-go-osu-football-embrace-high-expectations.jpg",
-      "photoCredit": "",
+      "photoCredit": "Chance Marick",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2026-07-10-were-going-to-win-wherever-we-go-osu-football-embrace-high-expectations.html",
+      "wordCount": 644
     },
     {
       "id": "2026-07-08-relationships-rebuilding-highlight-eric-morris-message-at-big-12-media-days",
@@ -99,11 +99,11 @@
       "excerpt": "FRISCO, Texas — As football season inches closer, the Big 12 held its annual Media Days at The Star in Frisco, Texas, on Tuesday, giving coaches and players an opportunity to discuss the upcoming season.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/a/7f/a7f4a8a5-ac8a-460b-953c-7b0a8495be18/69e446859c8f0.image.jpg?resize=300%2C200",
       "localImage": "images/2026-07-08-relationships-rebuilding-highlight-eric-morris-message-at-big-12-media-days.jpg",
-      "photoCredit": "",
+      "photoCredit": "Chance Marick",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2026-07-08-relationships-rebuilding-highlight-eric-morris-message-at-big-12-media-days.html",
+      "wordCount": 588
     },
     {
       "id": "2026-06-01-cowboy-basketball-adds-two-time-national-champion-gavin-roberts-to-strength-staff",
@@ -116,11 +116,11 @@
       "excerpt": "Oklahoma State announced Monday that Gavin Roberts will join Steve Lutz's staff as the program's new strength and conditioning coach.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/a/a3/aa3dab30-deb5-4821-a1b6-1ae3449ce3f1/69c09bcac3469.image.jpg?resize=300%2C200",
       "localImage": "images/2026-06-01-cowboy-basketball-adds-two-time-national-champion-gavin-roberts-to-strength-staff.jpg",
-      "photoCredit": "",
+      "photoCredit": "Catherine Dzanski",
       "waybackUrl": "https://web.archive.org/web/20260719160812/https://www.ocolly.com/sports/mens_basketball/cowboy-basketball-adds-two-time-national-champion-gavin-roberts-to-strength-staff/article_5cbd41c4-269e-4980-be42-b5783a4d73c4.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2026-06-01-cowboy-basketball-adds-two-time-national-champion-gavin-roberts-to-strength-staff.html",
+      "wordCount": 219
     },
     {
       "id": "2026-05-27-osu-football-announces-kickoff-times-for-first-three-games-of-eric-morris-era",
@@ -133,11 +133,11 @@
       "excerpt": "Oklahoma State football and its fans can start planning their gameday schedules with the announcement of kickoff times for the first three games against Tulsa, Oregon and Murray State, as well as the TV network for their first Big 12&#8230;",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/d/9d/d9d3bc6d-6279-4b5a-a4e9-e8b6206bf988/68b61d82592a3.image.jpg?resize=300%2C200",
       "localImage": "images/2026-05-27-osu-football-announces-kickoff-times-for-first-three-games-of-eric-morris-era.jpg",
-      "photoCredit": "",
+      "photoCredit": "Payton Little",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2026-05-27-osu-football-announces-kickoff-times-for-first-three-games-of-eric-morris-era.html",
+      "wordCount": 448
     },
     {
       "id": "2026-03-28-osu-evens-series-against-byu-with-12-5-win",
@@ -150,11 +150,11 @@
       "excerpt": "Oklahoma State was able to bounce back from its Game 1 loss in a big way, beating BYU 12-5 to even up the series on Friday.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/4/43/443803f6-1f10-440e-ab65-8a09641adca8/69c14e7a8457a.image.jpg?resize=300%2C200",
       "localImage": "images/2026-03-28-osu-evens-series-against-byu-with-12-5-win.jpg",
-      "photoCredit": "",
+      "photoCredit": "Daisy Gower",
       "waybackUrl": "https://web.archive.org/web/20260330023101/https://www.ocolly.com/sports/baseball/osu-evens-series-against-byu-with-12-5-win/article_0ca4bd6d-fec0-4d89-9eb2-a7115c2d12ba.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2026-03-28-osu-evens-series-against-byu-with-12-5-win.html",
+      "wordCount": 326
     },
     {
       "id": "2026-02-23-osu-baseball-wins-series-against-gcu-with-13-2-run-rule-win",
@@ -167,11 +167,11 @@
       "excerpt": "Oklahoma State finished its Grand Canyon series in dominant fashion on Sunday with a run-rule score of 13-2 in seven innings, recovering from the tough Game 1 loss to win the series 3-1.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/4/85/485637f1-252b-4019-931f-ccf15b7cc0dc/6992275d67c3c.image.jpg?resize=300%2C200",
       "localImage": "images/2026-02-23-osu-baseball-wins-series-against-gcu-with-13-2-run-rule-win.jpg",
-      "photoCredit": "",
+      "photoCredit": "Kaitlyn Robertson",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2026-02-23-osu-baseball-wins-series-against-gcu-with-13-2-run-rule-win.html",
+      "wordCount": 462
     },
     {
       "id": "2026-02-22-cowboys-take-2-1-series-lead-against-gcu-with-10-7-win",
@@ -184,11 +184,11 @@
       "excerpt": "Oklahoma State was able to take a 2-1 series lead over Grand Canyon Saturday evening with a 10-7 win.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/7/58/758204e7-dd98-4748-9675-86659704e4ed/699014eddf16d.image.jpg?resize=300%2C200",
       "localImage": "images/2026-02-22-cowboys-take-2-1-series-lead-against-gcu-with-10-7-win.jpg",
-      "photoCredit": "",
+      "photoCredit": "Chance Marick",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2026-02-22-cowboys-take-2-1-series-lead-against-gcu-with-10-7-win.html",
+      "wordCount": 436
     },
     {
       "id": "2025-11-04-haleigh-timmer-new-faces-shine-in-osu-cowgirls-win-against-new-orleans",
@@ -201,11 +201,11 @@
       "excerpt": "Oklahoma State was able to start the women’s basketball season strong Monday night when it took on the New Orleans Pioneers, winning 109-48.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/1/57/157a19da-1b59-4435-b9dc-64b286be971c/69097c8f67d75.image.jpg?resize=300%2C200",
       "localImage": "images/2025-11-04-haleigh-timmer-new-faces-shine-in-osu-cowgirls-win-against-new-orleans.jpg",
-      "photoCredit": "",
+      "photoCredit": "Trey Creel",
       "waybackUrl": "https://web.archive.org/web/20251113041020/https://www.ocolly.com/sports/womens_basketball/haleigh-timmer-new-faces-shine-in-osu-cowgirls-win-against-new-orleans/article_1cb288ed-1756-4d00-94c7-335ce0ae5f73.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-11-04-haleigh-timmer-new-faces-shine-in-osu-cowgirls-win-against-new-orleans.html",
+      "wordCount": 386
     },
     {
       "id": "2025-10-27-report-card-osu-falls-42-0-to-texas-tech",
@@ -218,11 +218,11 @@
       "excerpt": "Oklahoma State was unable to right the ship to the disappointing season when it traveled down to Lubbock to take on No. 14 Texas Tech, losing 42-0.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/e/27/e277028d-1b61-4076-9269-1c1c0d1fd6f9/68fd7c30bda01.image.jpg?resize=300%2C200",
       "localImage": "images/2025-10-27-report-card-osu-falls-42-0-to-texas-tech.jpg",
-      "photoCredit": "",
+      "photoCredit": "Bryson Thadhani",
       "waybackUrl": "https://web.archive.org/web/20251103173713/https://www.ocolly.com/sports/football/report-card-osu-falls-42-0-to-texas-tech/article_11451f7b-baf8-49b2-ab04-438f0c001fdd.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-10-27-report-card-osu-falls-42-0-to-texas-tech.html",
+      "wordCount": 375
     },
     {
       "id": "2025-10-12-report-card-osus-tackling-woes-continue-in-loss-to-houston",
@@ -235,11 +235,11 @@
       "excerpt": "Oklahoma State once again lost to a Big 12 opponent, this time Houston, after coming into the weekend with multiple quarterback injuries.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/9/53/95319ddc-3bb4-4415-bda9-b4c213e92079/68eaeca8eafc4.image.jpg?resize=300%2C200",
       "localImage": "images/2025-10-12-report-card-osus-tackling-woes-continue-in-loss-to-houston.jpg",
-      "photoCredit": "",
+      "photoCredit": "Davis Hicks",
       "waybackUrl": "https://web.archive.org/web/20251017083721/https://www.ocolly.com/sports/football/report-card-osus-tackling-woes-continue-in-loss-to-houston/article_65564c7d-faa7-4bf3-be7f-a9e227a3094f.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-10-12-report-card-osus-tackling-woes-continue-in-loss-to-houston.html",
+      "wordCount": 230
     },
     {
       "id": "2025-09-28-report-card-osu-falls-45-27-to-baylor",
@@ -252,11 +252,11 @@
       "excerpt": "In the first game in the post-Gundy era, the Oklahoma State Cowboys fell to the Baylor Bears 45-27, dropping OSU to 1-3 on the season and extending its Big 12 losing streak to 10 straight games over the last two&#8230;",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/9/a2/9a2e20ae-4c38-4328-b41f-5b04d5e01275/68d87d762fcc6.image.jpg?resize=300%2C200",
       "localImage": "images/2025-09-28-report-card-osu-falls-45-27-to-baylor.jpg",
-      "photoCredit": "",
+      "photoCredit": "Chance Marick",
       "waybackUrl": "https://web.archive.org/web/20251106143950/https://www.ocolly.com/sports/football/report-card-osu-falls-45-27-to-baylor/article_f1e371af-bc41-4f64-a42c-9295e0a21486.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-09-28-report-card-osu-falls-45-27-to-baylor.html",
+      "wordCount": 383
     },
     {
       "id": "2025-08-29-play-of-the-game-hejny-airs-it-out-to-rigby",
@@ -269,11 +269,11 @@
       "excerpt": "After a long offseason, Oklahoma State football fans once again had something to cheer for in Boone Pickens Stadium as OSU defeated UT Martin 27-7.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/c/79/c7944b60-d726-402b-9986-bfa739fb5bc2/68b11e0266160.image.jpg?resize=300%2C200",
       "localImage": "images/2025-08-29-play-of-the-game-hejny-airs-it-out-to-rigby.jpg",
-      "photoCredit": "",
+      "photoCredit": "Bryson Thadhani",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-08-29-play-of-the-game-hejny-airs-it-out-to-rigby.html",
+      "wordCount": 150
     },
     {
       "id": "2025-07-25-osu-roundnet-hopes-for-spike-in-sports-growth",
@@ -286,11 +286,11 @@
       "excerpt": "Growing up in Mansfield, Texas, Gibb Layton arrived on campus at Oklahoma State wanting to grow the sport of roundnet.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/4/e5/4e5d3a9d-0924-45e0-b365-473535ee984a/688248b857cbf.image.jpg?resize=300%2C214",
       "localImage": "images/2025-07-25-osu-roundnet-hopes-for-spike-in-sports-growth.jpg",
-      "photoCredit": "",
+      "photoCredit": "Courtesy OSU Roundnet Club",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-07-25-osu-roundnet-hopes-for-spike-in-sports-growth.html",
+      "wordCount": 466
     },
     {
       "id": "2025-07-17-osu-introduces-new-loge-box-seating-to-gia",
@@ -303,11 +303,11 @@
       "excerpt": "This winter, Oklahoma State will be switching up the seating in Gallagher-Iba Arena with the goal of creating a more enjoyable experience for the fans.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/9/6b/96b767a1-296e-4cda-9fe3-66247e0c8bde/687878aa7814f.image.jpg?crop=1116%2C566%2C0%2C15&resize=300%2C152&order=crop%2Cresize",
       "localImage": "images/2025-07-17-osu-introduces-new-loge-box-seating-to-gia.jpg",
-      "photoCredit": "",
+      "photoCredit": "Courtesy OSU Athletics",
       "waybackUrl": "https://web.archive.org/web/20250721172115/https://www.ocolly.com/sports/osu-introduces-new-loge-box-seating-to-gia/article_baf82ccd-e9fb-4207-ba74-22bcc3131942.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-07-17-osu-introduces-new-loge-box-seating-to-gia.html",
+      "wordCount": 393
     },
     {
       "id": "2025-07-07-osu-shut-out-of-big-12-preseason-honors",
@@ -320,11 +320,11 @@
       "excerpt": "Just a day before Big 12 Media Days, the conference released its All-Big 12 offensive and defensive teams. The media members who vote on the teams are tasked with evaluating who is expected to be the best players at each&#8230;",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/9/f8/9f858d40-aa0d-11ef-aa72-13d7be9dab4b/6742925fe8ed6.image.jpg?resize=300%2C201",
       "localImage": "images/2025-07-07-osu-shut-out-of-big-12-preseason-honors.jpg",
-      "photoCredit": "",
+      "photoCredit": "Payton Little",
       "waybackUrl": "https://web.archive.org/web/20260707225631/https://www.ocolly.com/sports/football/osu-shut-out-of-big-12-preseason-honors/article_ba5c1c23-7f94-44ff-8d5c-25441761fdd3.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-07-07-osu-shut-out-of-big-12-preseason-honors.html",
+      "wordCount": 311
     },
     {
       "id": "2025-06-12-recent-ncaa-settlement-allows-colleges-to-pay-players-what-it-means-for-osu-athletics",
@@ -337,11 +337,11 @@
       "excerpt": "Shockwaves were sent across the entire collegiate sports world June 6 when Judge Claudia Wilken approved a settlement in the House V. NCAA case, allowing colleges to put money directly into athletes' pockets.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/4/9b/49bb59dc-d9c7-11ef-8f39-47a326a1dc2c/6792a43710ac7.image.jpg?resize=300%2C189",
       "localImage": "images/2025-06-12-recent-ncaa-settlement-allows-colleges-to-pay-players-what-it-means-for-osu-athletics.jpg",
-      "photoCredit": "",
+      "photoCredit": "Payton Little",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-06-12-recent-ncaa-settlement-allows-colleges-to-pay-players-what-it-means-for-osu-athletics.html",
+      "wordCount": 595
     },
     {
       "id": "2025-05-29-kickoff-times-set-for-osu-football-s-first-three-games",
@@ -354,11 +354,11 @@
       "excerpt": "Oklahoma State football fans can now start planning their game day schedules with the times of OSU’s first three matchups against UT Martin, Oregon and Tulsa being announced Thursday morning.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/2/24/224d85f2-6e9f-11ef-bf17-ff9bc1a6b099/66dedcb299861.image.jpg?resize=300%2C200",
       "localImage": "images/2025-05-29-kickoff-times-set-for-osu-football-s-first-three-games.jpg",
-      "photoCredit": "",
+      "photoCredit": "Payton Little",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-05-29-kickoff-times-set-for-osu-football-s-first-three-games.html",
+      "wordCount": 451
     },
     {
       "id": "2025-05-15-hoyt-adds-height-depth-in-winlie-joseph-through-transfer-portal",
@@ -371,11 +371,11 @@
       "excerpt": "Oklahoma State head coach Jacie Hoyt has, once again, drawn in another recruit from the transfer portal with a 6-foot-5 center from McNeese State, Wilnie Joseph.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/3/d8/3d8dbe8e-fbe1-11ef-901f-331f91cef981/67cbdaa514e13.image.jpg?resize=300%2C200",
       "localImage": "images/2025-05-15-hoyt-adds-height-depth-in-winlie-joseph-through-transfer-portal.jpg",
-      "photoCredit": "",
+      "photoCredit": "Connor Fuxa",
       "waybackUrl": "https://web.archive.org/web/20260707230040/https://www.ocolly.com/sports/womens_basketball/hoyt-adds-height-depth-in-winlie-joseph-through-transfer-portal/article_424c05f5-d566-4141-b8e8-940e11ced90b.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-05-15-hoyt-adds-height-depth-in-winlie-joseph-through-transfer-portal.html",
+      "wordCount": 328
     },
     {
       "id": "2025-04-06-3-takeaways-osu-baseball-clinches-series-win-over-no-22-kansas-state",
@@ -388,11 +388,11 @@
       "excerpt": "Oklahoma State won its second game of the series against the No. 22 Kansas State Wildcats 7-0. The game was the first of the Sunday afternoon doubleheader for the Cowboys.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/1/97/1970934c-35b8-4f9a-ac3b-dd7edda3c2b5/67f0c5ed927dc.image.jpg?resize=300%2C200",
       "localImage": "images/2025-04-06-3-takeaways-osu-baseball-clinches-series-win-over-no-22-kansas-state.jpg",
-      "photoCredit": "",
+      "photoCredit": "Lilian Easter",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-04-06-3-takeaways-osu-baseball-clinches-series-win-over-no-22-kansas-state.html",
+      "wordCount": 499
     },
     {
       "id": "2025-03-29-oklahoma-state-equestrian-wins-fifth-straight-big-12-title",
@@ -405,11 +405,11 @@
       "excerpt": "Oklahoma State equestrian earned its fifth consecutive Big 12 title Saturday afternoon.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/b/2d/b2d27d94-774b-11ef-b550-bf8f7b0d49ff/66ed6a9fb263a.image.jpg?resize=300%2C200",
       "localImage": "images/2025-03-29-oklahoma-state-equestrian-wins-fifth-straight-big-12-title.jpg",
-      "photoCredit": "",
+      "photoCredit": "Courtesy OSU Athletics",
       "waybackUrl": "https://web.archive.org/web/20250711072616/https://www.ocolly.com/sports/equestrian/oklahoma-state-equestrian-wins-fifth-straight-big-12-title/article_96bb4ef8-51ec-4bf8-b112-412964958917.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-03-29-oklahoma-state-equestrian-wins-fifth-straight-big-12-title.html",
+      "wordCount": 230
     },
     {
       "id": "2025-03-26-3-takeaways-osu-baseball-bounces-back-with-9-5-win-against-wichita-state",
@@ -422,11 +422,11 @@
       "excerpt": "After a rocky weekend, Oklahoma State found its way back into the win column Tuesday night with a 9-5 win against Wichita State at O’Brate Stadium.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/a/46/a469a206-f24c-11ef-8586-fbee1e7fb6a3/67bbc7de2a1e7.image.jpg?resize=300%2C203",
       "localImage": "images/2025-03-26-3-takeaways-osu-baseball-bounces-back-with-9-5-win-against-wichita-state.jpg",
-      "photoCredit": "",
+      "photoCredit": "Payton Little",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-03-26-3-takeaways-osu-baseball-bounces-back-with-9-5-win-against-wichita-state.html",
+      "wordCount": 444
     },
     {
       "id": "2025-02-27-oklahoma-state-breaks-home-wins-record-in-74-64-victory-over-cincinnati",
@@ -439,11 +439,11 @@
       "excerpt": "Oklahoma State finished all its regular-season home games with a 17-1 home record, defeating the Cincinnati Bearcats 74-64.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/3/2e/32ef632a-f325-11ef-82ae-bfb183df4a5c/67bd33308c396.image.jpg?resize=300%2C200",
       "localImage": "images/2025-02-27-oklahoma-state-breaks-home-wins-record-in-74-64-victory-over-cincinnati.jpg",
-      "photoCredit": "",
+      "photoCredit": "Jose Brito",
       "waybackUrl": "https://web.archive.org/web/20250711065451/https://www.ocolly.com/sports/womens_basketball/oklahoma-state-breaks-home-wins-record-in-74-64-victory-over-cincinnati/article_6bddbb7c-f4c0-11ef-8e35-ef4fd62acc9e.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-02-27-oklahoma-state-breaks-home-wins-record-in-74-64-victory-over-cincinnati.html",
+      "wordCount": 383
     },
     {
       "id": "2025-02-13-oklahoma-state-defeats-arizona-83-64-improves-to-20-4",
@@ -456,11 +456,11 @@
       "excerpt": "Oklahoma State was able to defend its home arena with an 83-64 victory against the Arizona Wildcats.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/2/ae/2ae84fc4-e9b2-11ef-98de-2700cb9e51fa/67ad58ba7e128.image.jpg?resize=300%2C200",
       "localImage": "images/2025-02-13-oklahoma-state-defeats-arizona-83-64-improves-to-20-4.jpg",
-      "photoCredit": "",
+      "photoCredit": "Andon Freitas",
       "waybackUrl": "https://web.archive.org/web/20250805084732/https://www.ocolly.com/sports/womens_basketball/oklahoma-state-defeats-arizona-83-64-improves-to-20-4/article_e976c726-e9bd-11ef-aae0-33da5a374114.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-02-13-oklahoma-state-defeats-arizona-83-64-improves-to-20-4.html",
+      "wordCount": 332
     },
     {
       "id": "2025-02-09-gray-heard-asi-shine-in-oklahoma-states-win-against-kansas-state",
@@ -473,11 +473,11 @@
       "excerpt": "Coming off a loss to West Virginia, No. 25 Oklahoma State utilized its bye week to prepare for a top-25 matchup against No. 12 Kansas State. The 85-55 blow-out was the largest margin of victory by the Cowgirls against a&#8230;",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/f/2c/f2c2828c-e677-11ef-9354-1732db9eee5b/67a7ee90087d1.image.jpg?resize=300%2C200",
       "localImage": "images/2025-02-09-gray-heard-asi-shine-in-oklahoma-states-win-against-kansas-state.jpg",
-      "photoCredit": "",
+      "photoCredit": "Connor Fuxa",
       "waybackUrl": "https://web.archive.org/web/20250711070430/https://www.ocolly.com/sports/womens_basketball/gray-heard-asi-shine-in-oklahoma-states-win-against-kansas-state/article_577bf928-e67e-11ef-9162-2f9c12fdee3b.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-02-09-gray-heard-asi-shine-in-oklahoma-states-win-against-kansas-state.html",
+      "wordCount": 390
     },
     {
       "id": "2025-01-30-stailee-heard-continues-dominant-season-in-osus-83-71-win-against-arizona-state",
@@ -490,11 +490,11 @@
       "excerpt": "Oklahoma State extended its Big 12 winning streak to four by defeating Arizona State 83-71 in Gallagher-Iba Arena.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/0/23/023362c4-d929-11ef-aaa7-ebdfee848793/67919aaa8946c.image.jpg?resize=300%2C200",
       "localImage": "images/2025-01-30-stailee-heard-continues-dominant-season-in-osus-83-71-win-against-arizona-state.jpg",
-      "photoCredit": "",
+      "photoCredit": "Bryson Thadhani",
       "waybackUrl": "https://web.archive.org/web/20250803104443/https://www.ocolly.com/sports/womens_basketball/stailee-heard-continues-dominant-season-in-osus-83-71-win-against-arizona-state/article_a395489e-dec4-11ef-b6e0-f370865c7149.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-01-30-stailee-heard-continues-dominant-season-in-osus-83-71-win-against-arizona-state.html",
+      "wordCount": 310
     },
     {
       "id": "2025-01-09-oklahoma-state-womens-basketball-bounces-back-defeats-cincinnati-64-48",
@@ -507,11 +507,11 @@
       "excerpt": "Despite an ugly first half performance, Oklahoma State was able to bounce back from last week’s loss against Kansas by defeating Cincinnati 64-48.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/8/b9/8b9b0078-caef-11ef-ad84-277c6a2bc46b/6779bd4e01fcd.image.jpg?resize=300%2C213",
       "localImage": "images/2025-01-09-oklahoma-state-womens-basketball-bounces-back-defeats-cincinnati-64-48.jpg",
-      "photoCredit": "",
+      "photoCredit": "Payton Little",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2025-01-09-oklahoma-state-womens-basketball-bounces-back-defeats-cincinnati-64-48.html",
+      "wordCount": 375
     },
     {
       "id": "2024-12-17-three-takeaways-osus-bench-scoring-defense-leads-cowgirls-past-mcneese-state-in-blowout-win",
@@ -524,11 +524,11 @@
       "excerpt": "Oklahoma State closed out its nonconference schedule on a high note, beating McNeese State 92-41 at Gallager-Iba Arena on Monday.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/4/90/49071f16-b2b8-11ef-9f36-834ce3fc2c95/67511cac17027.image.jpg?resize=300%2C200",
       "localImage": "images/2024-12-17-three-takeaways-osus-bench-scoring-defense-leads-cowgirls-past-mcneese-state-in-blowout-win.jpg",
-      "photoCredit": "",
+      "photoCredit": "Connor Fuxa",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-12-17-three-takeaways-osus-bench-scoring-defense-leads-cowgirls-past-mcneese-state-in-blowout-win.html",
+      "wordCount": 473
     },
     {
       "id": "2024-12-07-stailee-heard-propels-cowgirls-to-record-125-49-win-over-alabama-state",
@@ -541,11 +541,11 @@
       "excerpt": "Oklahoma State had another record-breaking performance in its 76-point win Friday night against the Alabama State in Gallagher Iba Arena.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/a/a9/aa90dd96-d67a-11ee-bf80-dfdab2bf5ea0/65df9c031a169.image.jpg?resize=300%2C200",
       "localImage": "images/2024-12-07-stailee-heard-propels-cowgirls-to-record-125-49-win-over-alabama-state.jpg",
-      "photoCredit": "",
+      "photoCredit": "File Photo",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-12-07-stailee-heard-propels-cowgirls-to-record-125-49-win-over-alabama-state.html",
+      "wordCount": 322
     },
     {
       "id": "2024-11-30-headset-check-missed-fourth-down-conversion-kills-any-chance-of-osu-offensive-momentum",
@@ -558,11 +558,11 @@
       "excerpt": "The 2024 season ended sourly Friday for Oklahoma State, which lost to Colorado 52-0.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/3/cf/3cfb435a-ae9e-11ef-b225-a3c0e1a93338/674a3afc4bf5e.image.jpg?resize=300%2C200",
       "localImage": "images/2024-11-30-headset-check-missed-fourth-down-conversion-kills-any-chance-of-osu-offensive-momentum.jpg",
-      "photoCredit": "",
+      "photoCredit": "Connor Fuxa",
       "waybackUrl": "https://web.archive.org/web/20250802225910/https://www.ocolly.com/sports/football/headset-check-missed-fourth-down-conversion-kills-any-chance-of-osu-offensive-momentum/article_70989440-af4a-11ef-b37d-4b2353ed9d21.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-11-30-headset-check-missed-fourth-down-conversion-kills-any-chance-of-osu-offensive-momentum.html",
+      "wordCount": 139
     },
     {
       "id": "2024-11-25-headset-check-ollie-gordon-ii-pass-puts-osu-in-position-to-find-the-end-zone",
@@ -575,11 +575,11 @@
       "excerpt": "Oklahoma State remained winless in Big 12 Conference play after Saturday’s Senior Day game, losing 56-48 to Texas Tech.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/1/e9/1e91b48a-93f5-11ef-92d9-0718f26fd551/671d80561d44e.image.jpg?resize=300%2C208",
       "localImage": "images/2024-11-25-headset-check-ollie-gordon-ii-pass-puts-osu-in-position-to-find-the-end-zone.jpg",
-      "photoCredit": "",
+      "photoCredit": "Payton Little",
       "waybackUrl": "https://web.archive.org/web/20260707225414/https://www.ocolly.com/sports/football/headset-check-ollie-gordon-ii-pass-puts-osu-in-position-to-find-the-end-zone/article_f742596c-aae6-11ef-97ec-7fe3f9295ae2.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-11-25-headset-check-ollie-gordon-ii-pass-puts-osu-in-position-to-find-the-end-zone.html",
+      "wordCount": 123
     },
     {
       "id": "2024-11-11-headset-check-osu-freshman-quarterback-maealiuaki-smith-seeing-the-field-against-tcu",
@@ -592,11 +592,11 @@
       "excerpt": "Oklahoma State officially lost its bowl eligibility for the first time in 18 years this past Saturday after a 38-13 loss to TCU.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/7/f7/7f75921a-9988-11ef-adab-9f7b1f135117/6726db1476325.image.jpg?resize=300%2C191",
       "localImage": "images/2024-11-11-headset-check-osu-freshman-quarterback-maealiuaki-smith-seeing-the-field-against-tcu.jpg",
-      "photoCredit": "",
+      "photoCredit": "Payton Little",
       "waybackUrl": "https://web.archive.org/web/20241128001149/https://www.ocolly.com/sports/football/headset-check-osu-freshman-quarterback-maealiuaki-smith-seeing-the-field-against-tcu/article_459b612c-a032-11ef-a657-57250e6e7d48.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-11-11-headset-check-osu-freshman-quarterback-maealiuaki-smith-seeing-the-field-against-tcu.html",
+      "wordCount": 238
     },
     {
       "id": "2024-11-03-headset-check-osus-second-half-timeout-leads-to-asu-touchdown",
@@ -609,11 +609,11 @@
       "excerpt": "Oklahoma State had a long day Saturday, both literally and figuratively, as the Cowboys lost their sixth straight game to Arizona State, 42-21.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/e/34/e34f0134-93e0-11ef-972f-4373c21697db/671d5e64b46fe.image.jpg?resize=300%2C200",
       "localImage": "images/2024-11-03-headset-check-osus-second-half-timeout-leads-to-asu-touchdown.jpg",
-      "photoCredit": "",
+      "photoCredit": "Payton Little",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-11-03-headset-check-osus-second-half-timeout-leads-to-asu-touchdown.html",
+      "wordCount": 241
     },
     {
       "id": "2024-10-19-headset-check-brennan-presleys-16-yard-touchdown-pass-to-alan-bowman",
@@ -626,11 +626,11 @@
       "excerpt": "Oklahoma State lost 38-35 in heartbreaking fashion Friday night on the road against No. 13 BYU.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/d/0c/d0cb91de-7de3-11ef-a8b0-dfd4ed05ac83/66f87a608eb68.image.jpg?resize=300%2C200",
       "localImage": "images/2024-10-19-headset-check-brennan-presleys-16-yard-touchdown-pass-to-alan-bowman.jpg",
-      "photoCredit": "",
+      "photoCredit": "Jose Brito",
       "waybackUrl": "https://web.archive.org/web/20260707225938/https://www.ocolly.com/sports/football/headset-check-brennan-presleys-16-yard-touchdown-pass-to-alan-bowman/article_7639c3b8-8e3b-11ef-8061-33bdf957300e.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-10-19-headset-check-brennan-presleys-16-yard-touchdown-pass-to-alan-bowman.html",
+      "wordCount": 228
     },
     {
       "id": "2024-09-30-headset-check-osu-opting-for-the-conservative-route-against-kansas-state",
@@ -643,11 +643,11 @@
       "excerpt": "No. 20 Oklahoma State lost a second straight game in a pivotal Big 12 matchup against No. 23 Kanas State 42-20.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/f/75/f7584cd2-7dc2-11ef-8fda-bf8233a674d9/66f84343d602c.image.jpg?resize=300%2C215",
       "localImage": "images/2024-09-30-headset-check-osu-opting-for-the-conservative-route-against-kansas-state.jpg",
-      "photoCredit": "",
+      "photoCredit": "Payton Little",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-09-30-headset-check-osu-opting-for-the-conservative-route-against-kansas-state.html",
+      "wordCount": 215
     },
     {
       "id": "2024-09-22-headset-check-alan-bowman-benched-for-garret-rangel-against-utah",
@@ -660,11 +660,11 @@
       "excerpt": "In the battle of the 20-year head coaches, Kyle Whittingham and No. 12 Utah defeated Mike Gundy and No. 14 Oklahoma State 22-19.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/c/9a/c9a8ffd2-788d-11ef-87ac-fb665de6164d/66ef86f27e80b.image.jpg?resize=300%2C200",
       "localImage": "images/2024-09-22-headset-check-alan-bowman-benched-for-garret-rangel-against-utah.jpg",
-      "photoCredit": "",
+      "photoCredit": "Lilian Easter",
       "waybackUrl": "https://web.archive.org/web/20241002204845/https://www.ocolly.com/sports/football/headset-check-alan-bowman-benched-for-garret-rangel-against-utah/article_104fc5a0-78fd-11ef-899a-13639b2abfe0.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-09-22-headset-check-alan-bowman-benched-for-garret-rangel-against-utah.html",
+      "wordCount": 223
     },
     {
       "id": "2024-09-15-headset-check-fourth-down-conversion-sets-up-osu-touchdown-against-tulsa",
@@ -677,11 +677,11 @@
       "excerpt": "No. 13 Oklahoma State handled business Saturday in its first road trip of the season against Tulsa, winning 45-10.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/d/c8/dc825946-72de-11ef-99ca-7f551f0809cb/66e5fd99ec46f.image.jpg?resize=300%2C200",
       "localImage": "images/2024-09-15-headset-check-fourth-down-conversion-sets-up-osu-touchdown-against-tulsa.jpg",
-      "photoCredit": "",
+      "photoCredit": "Bryson Thadhani",
       "waybackUrl": "https://web.archive.org/web/20240929025733/https://www.ocolly.com/sports/football/headset-check-fourth-down-conversion-sets-up-osu-touchdown-against-tulsa/article_9281e1b6-738a-11ef-a75d-fbf383f5468c.html",
       "status": "wayback",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-09-15-headset-check-fourth-down-conversion-sets-up-osu-touchdown-against-tulsa.html",
+      "wordCount": 159
     },
     {
       "id": "2024-09-08-headset-check-cowboy-fullback-jake-schultzs-long-reception",
@@ -694,11 +694,11 @@
       "excerpt": "In No. 16 Oklahoma State's nail-biting game against Arkansas, which resulted in a 39-31 Cowboys victory in double overtime, they needed all the help they could get Saturday.",
       "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/3/9b/39b9aec4-3520-11ed-9a48-f77837e2232a/63236903b2d06.image.jpg?resize=300%2C200",
       "localImage": "images/2024-09-08-headset-check-cowboy-fullback-jake-schultzs-long-reception.jpg",
-      "photoCredit": "",
+      "photoCredit": "Courtesy Bruce Waterfield",
       "waybackUrl": "",
       "status": "indexed",
-      "fulltext": "",
-      "wordCount": 0
+      "fulltext": "fulltext/2024-09-08-headset-check-cowboy-fullback-jake-schultzs-long-reception.html",
+      "wordCount": 138
     }
   ]
 }

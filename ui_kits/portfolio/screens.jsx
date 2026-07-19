@@ -123,13 +123,47 @@ function Work() {
 }
 
 /* ------------------------------ VIDEO ------------------------------ */
+const VIDEOS = [
+  {
+    id: 'hY7Lyp-niFo',
+    title: 'Big 12 Football Media Days 2026',
+    meta: 'On the floor in Frisco · July 2026',
+    note: 'Timothy makes an appearance around the 7:55 mark.',
+    start: 475,
+  },
+];
+
 function VideoPage() {
   return (
     <Wrap style={{ paddingTop: 'var(--space-8)' }}>
       <SectionHeading kicker="On camera" title="Press &amp; video" />
       <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-lead)', color: 'var(--text-muted)', maxWidth: '54ch', marginTop: 'var(--space-4)' }}>
-        Clips of Timothy on the beat — asking questions at press conferences and postgame availabilities. Coming soon.
+        Timothy on the beat — on the floor at Big 12 events and postgame availabilities.
       </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)', marginTop: 'var(--space-7)', maxWidth: '860px' }}>
+        {VIDEOS.map((v) => (
+          <div key={v.id}>
+            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, border: '2px solid var(--ink-950)', background: 'var(--ink-950)' }}>
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${v.id}?rel=0`}
+                title={v.title}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+              />
+            </div>
+            <div style={{ marginTop: 'var(--space-4)', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 'var(--space-4)', flexWrap: 'wrap' }}>
+              <div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, textTransform: 'uppercase', fontSize: 'var(--fs-display-s)', margin: 0, color: 'var(--text-strong)' }}>{v.title}</h3>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-muted)', marginTop: '6px' }}>{v.meta}</div>
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-body)', color: 'var(--text-body)', marginTop: '10px', maxWidth: '52ch' }}>{v.note}</p>
+              </div>
+              <a href={`https://youtu.be/${v.id}?t=${v.start}`} target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--brand)', textDecoration: 'none', whiteSpace: 'nowrap' }}>▶ Jump to 7:55</a>
+            </div>
+          </div>
+        ))}
+      </div>
     </Wrap>
   );
 }
@@ -163,7 +197,19 @@ function About() {
               </p>
               <div style={{ marginTop: 'var(--space-6)' }}><Button variant="primary">Download résumé</Button></div>
             </div>
-            <div style={{ aspectRatio: '4/5', background: 'var(--ink-800)', border: '2px solid var(--ink-700)' }}></div>
+            <figure style={{ margin: 0 }}>
+              <div style={{ aspectRatio: '4/5', background: 'var(--ink-800)', border: '2px solid var(--ink-700)', overflow: 'hidden' }}>
+                <img
+                  src="/assets/timothy-eric-morris.jpg"
+                  alt="Timothy Christensen with Oklahoma State head football coach Eric Morris at Big 12 Football Media Days"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+              </div>
+              <figcaption style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--ink-400)', marginTop: '8px' }}>
+                With OSU head coach Eric Morris · Big 12 Football Media Days, 2026
+              </figcaption>
+            </figure>
           </div>
         </Wrap>
       </div>

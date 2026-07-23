@@ -16,11 +16,11 @@ function useClips() {
   }, []);
   return clips;
 }
-const SECTION_LABEL = { football: 'Football', womens_basketball: "Women's Basketball", mens_basketball: "Men's Basketball", baseball: 'Baseball', softball: 'Softball', golf: 'Golf', soccer: 'Soccer', tennis: 'Tennis', track: 'Cross Country/Track', equestrian: 'Equestrian', wrestling: 'Wrestling', sports: 'General' };
+const SECTION_LABEL = { football: 'Football', womens_basketball: "Women's Basketball", mens_basketball: "Men's Basketball", baseball: 'Baseball', golf: 'Golf', track: 'Cross Country/Track', equestrian: 'Equestrian', wrestling: 'Wrestling', sports: 'General' };
 const pretty = (s) => SECTION_LABEL[s] || 'General';
 // A clip's categories default to its single `section`; an optional `categories` array (of section keys) lets one article span multiple sports.
 const clipCats = (c) => (c.categories && c.categories.length ? c.categories : [c.section]).map(pretty);
-const CATEGORY_ORDER = ['Football', "Women's Basketball", "Men's Basketball", 'Baseball', 'Softball', 'Golf', 'Soccer', 'Tennis', 'Cross Country/Track', 'Wrestling', 'Equestrian', 'General'];
+const CATEGORY_ORDER = ['Football', "Women's Basketball", "Men's Basketball", 'Baseball', 'Golf', 'Cross Country/Track', 'Equestrian', 'Wrestling', 'General'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const fmtDate = (iso) => { const p = (iso || '').split('-'); return p.length === 3 ? MONTHS[+p[1] - 1] + ' ' + p[0] : iso; };
 // link out to O'Colly while the URL is live; fall back to our archived copy when it 404s.

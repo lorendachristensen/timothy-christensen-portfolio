@@ -42,12 +42,15 @@ const pick = (block, tag) => { const m = block.match(new RegExp('<' + tag + '[^>
 const enc = (block) => { const m = block.match(/<enclosure[^>]*url="([^"]+)"/); return m ? clean(m[1]) : ''; };
 
 // O'Colly URL sport-slug (the path segment before the article slug) -> our canonical category key.
-// Cross-country/track spelling variants fold onto one key so the display stays consistent.
+// Gendered and cross-country/track spelling variants fold onto one key so the display stays consistent.
 // Anything not listed here falls through to 'sports' (shown as "General") and can be retagged by hand.
 const SECTION_SLUGS = {
   football: 'football',
   mens_basketball: 'mens_basketball', womens_basketball: 'womens_basketball',
-  baseball: 'baseball', golf: 'golf',
+  baseball: 'baseball', softball: 'softball',
+  golf: 'golf', mens_golf: 'golf', womens_golf: 'golf',
+  soccer: 'soccer', mens_soccer: 'soccer', womens_soccer: 'soccer',
+  tennis: 'tennis', mens_tennis: 'tennis', womens_tennis: 'tennis',
   cross_country: 'track', track: 'track', track_and_field: 'track', track_field: 'track',
   wrestling: 'wrestling', equestrian: 'equestrian',
 };

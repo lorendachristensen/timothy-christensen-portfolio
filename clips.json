@@ -14,12 +14,50 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 40,
+    "totalArticles": 42,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-07-19T17:05:54.712Z"
+    "lastSync": "2026-07-23T18:15:09.059Z"
   },
   "clips": [
+    {
+      "id": "2026-07-22-preston-stout-named-preseason-no-1-by-pga-tour-university",
+      "headline": "Preston Stout named preseason No. 1 by PGA Tour University",
+      "date": "2026-07-22",
+      "section": "sports",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/golf/preston-stout-named-preseason-no-1-by-pga-tour-university/article_2dc20f96-15b5-4391-9cf3-c79c70c3d50d.html",
+      "excerpt": "Oklahoma State’s Preston Stout has once again found himself at the top of another ranking.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/7/d0/7d0ce023-3007-420b-b4be-1f0ee20acf6b/680a4ec917973.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-07-22-preston-stout-named-preseason-no-1-by-pga-tour-university.jpg",
+      "photoCredit": "Davis Hicks",
+      "fulltext": "fulltext/2026-07-22-preston-stout-named-preseason-no-1-by-pga-tour-university.html",
+      "wordCount": 295,
+      "live": true,
+      "lastChecked": "2026-07-23",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
+    {
+      "id": "2026-07-22-osu-nominates-jepkirui-stout-for-big-12-athletes-of-the-year",
+      "headline": "OSU nominates Jepkirui, Stout for Big 12 Athletes of the Year",
+      "date": "2026-07-22",
+      "section": "sports",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/golf/osu-nominates-jepkirui-stout-for-big-12-athletes-of-the-year/article_bd0c30d0-29b8-42cb-b609-8b52b8e4d949.html",
+      "excerpt": "Oklahoma State has nominated golfer Preston Stout and cross country and track standout Billah Jepkirui for the Big 12 Athletes of the Year awards.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/1/66/16646760-0567-482c-ace5-933b0835428d/69233b238f113.image.jpg?resize=300%2C375",
+      "localImage": "images/2026-07-22-osu-nominates-jepkirui-stout-for-big-12-athletes-of-the-year.jpg",
+      "photoCredit": "Stone Brown",
+      "fulltext": "fulltext/2026-07-22-osu-nominates-jepkirui-stout-for-big-12-athletes-of-the-year.html",
+      "wordCount": 455,
+      "live": true,
+      "lastChecked": "2026-07-23",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-07-17-brothers-championship-fuels-ethan-wesloskis-goals-at-osu",
       "headline": "Brother's championship fuels Ethan Wesloski's goals at OSU",
@@ -35,7 +73,9 @@
       "waybackUrl": "",
       "status": "indexed",
       "wordCount": 484,
-      "fulltext": "fulltext/2026-07-17-brothers-championship-fuels-ethan-wesloskis-goals-at-osu.html"
+      "fulltext": "fulltext/2026-07-17-brothers-championship-fuels-ethan-wesloskis-goals-at-osu.html",
+      "live": true,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2026-07-17-we-need-more-access-big-12-osu-push-for-cfp-expansion",
@@ -52,7 +92,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "wordCount": 48,
-      "fulltext": "fulltext/2026-07-17-we-need-more-access-big-12-osu-push-for-cfp-expansion.html"
+      "fulltext": "fulltext/2026-07-17-we-need-more-access-big-12-osu-push-for-cfp-expansion.html",
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2026-07-10-how-the-big-12s-monster-energy-partnership-affects-oklahoma-state",
@@ -69,7 +110,9 @@
       "waybackUrl": "",
       "status": "indexed",
       "wordCount": 430,
-      "fulltext": "fulltext/2026-07-10-how-the-big-12s-monster-energy-partnership-affects-oklahoma-state.html"
+      "fulltext": "fulltext/2026-07-10-how-the-big-12s-monster-energy-partnership-affects-oklahoma-state.html",
+      "live": true,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2026-07-10-were-going-to-win-wherever-we-go-osu-football-embrace-high-expectations",
@@ -86,7 +129,9 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2026-07-10-were-going-to-win-wherever-we-go-osu-football-embrace-high-expectations.html",
-      "wordCount": 644
+      "wordCount": 644,
+      "live": true,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2026-07-08-relationships-rebuilding-highlight-eric-morris-message-at-big-12-media-days",
@@ -103,7 +148,9 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2026-07-08-relationships-rebuilding-highlight-eric-morris-message-at-big-12-media-days.html",
-      "wordCount": 588
+      "wordCount": 588,
+      "live": true,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2026-06-01-cowboy-basketball-adds-two-time-national-champion-gavin-roberts-to-strength-staff",
@@ -120,7 +167,9 @@
       "waybackUrl": "https://web.archive.org/web/20260719160812/https://www.ocolly.com/sports/mens_basketball/cowboy-basketball-adds-two-time-national-champion-gavin-roberts-to-strength-staff/article_5cbd41c4-269e-4980-be42-b5783a4d73c4.html",
       "status": "wayback",
       "fulltext": "fulltext/2026-06-01-cowboy-basketball-adds-two-time-national-champion-gavin-roberts-to-strength-staff.html",
-      "wordCount": 219
+      "wordCount": 219,
+      "live": true,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2026-05-27-osu-football-announces-kickoff-times-for-first-three-games-of-eric-morris-era",
@@ -137,7 +186,9 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2026-05-27-osu-football-announces-kickoff-times-for-first-three-games-of-eric-morris-era.html",
-      "wordCount": 448
+      "wordCount": 448,
+      "live": true,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2026-03-28-osu-evens-series-against-byu-with-12-5-win",
@@ -154,7 +205,8 @@
       "waybackUrl": "https://web.archive.org/web/20260330023101/https://www.ocolly.com/sports/baseball/osu-evens-series-against-byu-with-12-5-win/article_0ca4bd6d-fec0-4d89-9eb2-a7115c2d12ba.html",
       "status": "wayback",
       "fulltext": "fulltext/2026-03-28-osu-evens-series-against-byu-with-12-5-win.html",
-      "wordCount": 326
+      "wordCount": 326,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2026-02-23-osu-baseball-wins-series-against-gcu-with-13-2-run-rule-win",
@@ -171,7 +223,9 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2026-02-23-osu-baseball-wins-series-against-gcu-with-13-2-run-rule-win.html",
-      "wordCount": 462
+      "wordCount": 462,
+      "live": true,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2026-02-22-cowboys-take-2-1-series-lead-against-gcu-with-10-7-win",
@@ -188,7 +242,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2026-02-22-cowboys-take-2-1-series-lead-against-gcu-with-10-7-win.html",
-      "wordCount": 436
+      "wordCount": 436,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-11-04-haleigh-timmer-new-faces-shine-in-osu-cowgirls-win-against-new-orleans",
@@ -205,7 +260,8 @@
       "waybackUrl": "https://web.archive.org/web/20251113041020/https://www.ocolly.com/sports/womens_basketball/haleigh-timmer-new-faces-shine-in-osu-cowgirls-win-against-new-orleans/article_1cb288ed-1756-4d00-94c7-335ce0ae5f73.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-11-04-haleigh-timmer-new-faces-shine-in-osu-cowgirls-win-against-new-orleans.html",
-      "wordCount": 386
+      "wordCount": 386,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-10-27-report-card-osu-falls-42-0-to-texas-tech",
@@ -222,7 +278,8 @@
       "waybackUrl": "https://web.archive.org/web/20251103173713/https://www.ocolly.com/sports/football/report-card-osu-falls-42-0-to-texas-tech/article_11451f7b-baf8-49b2-ab04-438f0c001fdd.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-10-27-report-card-osu-falls-42-0-to-texas-tech.html",
-      "wordCount": 375
+      "wordCount": 375,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-10-12-report-card-osus-tackling-woes-continue-in-loss-to-houston",
@@ -239,7 +296,8 @@
       "waybackUrl": "https://web.archive.org/web/20251017083721/https://www.ocolly.com/sports/football/report-card-osus-tackling-woes-continue-in-loss-to-houston/article_65564c7d-faa7-4bf3-be7f-a9e227a3094f.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-10-12-report-card-osus-tackling-woes-continue-in-loss-to-houston.html",
-      "wordCount": 230
+      "wordCount": 230,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-09-28-report-card-osu-falls-45-27-to-baylor",
@@ -256,7 +314,8 @@
       "waybackUrl": "https://web.archive.org/web/20251106143950/https://www.ocolly.com/sports/football/report-card-osu-falls-45-27-to-baylor/article_f1e371af-bc41-4f64-a42c-9295e0a21486.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-09-28-report-card-osu-falls-45-27-to-baylor.html",
-      "wordCount": 383
+      "wordCount": 383,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-08-29-play-of-the-game-hejny-airs-it-out-to-rigby",
@@ -273,7 +332,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2025-08-29-play-of-the-game-hejny-airs-it-out-to-rigby.html",
-      "wordCount": 150
+      "wordCount": 150,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-07-25-osu-roundnet-hopes-for-spike-in-sports-growth",
@@ -290,7 +350,9 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2025-07-25-osu-roundnet-hopes-for-spike-in-sports-growth.html",
-      "wordCount": 466
+      "wordCount": 466,
+      "live": true,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-07-17-osu-introduces-new-loge-box-seating-to-gia",
@@ -307,7 +369,9 @@
       "waybackUrl": "https://web.archive.org/web/20250721172115/https://www.ocolly.com/sports/osu-introduces-new-loge-box-seating-to-gia/article_baf82ccd-e9fb-4207-ba74-22bcc3131942.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-07-17-osu-introduces-new-loge-box-seating-to-gia.html",
-      "wordCount": 393
+      "wordCount": 393,
+      "live": true,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-07-07-osu-shut-out-of-big-12-preseason-honors",
@@ -324,7 +388,8 @@
       "waybackUrl": "https://web.archive.org/web/20260707225631/https://www.ocolly.com/sports/football/osu-shut-out-of-big-12-preseason-honors/article_ba5c1c23-7f94-44ff-8d5c-25441761fdd3.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-07-07-osu-shut-out-of-big-12-preseason-honors.html",
-      "wordCount": 311
+      "wordCount": 311,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-06-12-recent-ncaa-settlement-allows-colleges-to-pay-players-what-it-means-for-osu-athletics",
@@ -341,7 +406,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2025-06-12-recent-ncaa-settlement-allows-colleges-to-pay-players-what-it-means-for-osu-athletics.html",
-      "wordCount": 595
+      "wordCount": 595,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-05-29-kickoff-times-set-for-osu-football-s-first-three-games",
@@ -358,7 +424,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2025-05-29-kickoff-times-set-for-osu-football-s-first-three-games.html",
-      "wordCount": 451
+      "wordCount": 451,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-05-15-hoyt-adds-height-depth-in-winlie-joseph-through-transfer-portal",
@@ -375,7 +442,8 @@
       "waybackUrl": "https://web.archive.org/web/20260707230040/https://www.ocolly.com/sports/womens_basketball/hoyt-adds-height-depth-in-winlie-joseph-through-transfer-portal/article_424c05f5-d566-4141-b8e8-940e11ced90b.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-05-15-hoyt-adds-height-depth-in-winlie-joseph-through-transfer-portal.html",
-      "wordCount": 328
+      "wordCount": 328,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-04-06-3-takeaways-osu-baseball-clinches-series-win-over-no-22-kansas-state",
@@ -392,7 +460,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2025-04-06-3-takeaways-osu-baseball-clinches-series-win-over-no-22-kansas-state.html",
-      "wordCount": 499
+      "wordCount": 499,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-03-29-oklahoma-state-equestrian-wins-fifth-straight-big-12-title",
@@ -409,7 +478,8 @@
       "waybackUrl": "https://web.archive.org/web/20250711072616/https://www.ocolly.com/sports/equestrian/oklahoma-state-equestrian-wins-fifth-straight-big-12-title/article_96bb4ef8-51ec-4bf8-b112-412964958917.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-03-29-oklahoma-state-equestrian-wins-fifth-straight-big-12-title.html",
-      "wordCount": 230
+      "wordCount": 230,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-03-26-3-takeaways-osu-baseball-bounces-back-with-9-5-win-against-wichita-state",
@@ -426,7 +496,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2025-03-26-3-takeaways-osu-baseball-bounces-back-with-9-5-win-against-wichita-state.html",
-      "wordCount": 444
+      "wordCount": 444,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-02-27-oklahoma-state-breaks-home-wins-record-in-74-64-victory-over-cincinnati",
@@ -443,7 +514,8 @@
       "waybackUrl": "https://web.archive.org/web/20250711065451/https://www.ocolly.com/sports/womens_basketball/oklahoma-state-breaks-home-wins-record-in-74-64-victory-over-cincinnati/article_6bddbb7c-f4c0-11ef-8e35-ef4fd62acc9e.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-02-27-oklahoma-state-breaks-home-wins-record-in-74-64-victory-over-cincinnati.html",
-      "wordCount": 383
+      "wordCount": 383,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-02-13-oklahoma-state-defeats-arizona-83-64-improves-to-20-4",
@@ -460,7 +532,8 @@
       "waybackUrl": "https://web.archive.org/web/20250805084732/https://www.ocolly.com/sports/womens_basketball/oklahoma-state-defeats-arizona-83-64-improves-to-20-4/article_e976c726-e9bd-11ef-aae0-33da5a374114.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-02-13-oklahoma-state-defeats-arizona-83-64-improves-to-20-4.html",
-      "wordCount": 332
+      "wordCount": 332,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-02-09-gray-heard-asi-shine-in-oklahoma-states-win-against-kansas-state",
@@ -477,7 +550,8 @@
       "waybackUrl": "https://web.archive.org/web/20250711070430/https://www.ocolly.com/sports/womens_basketball/gray-heard-asi-shine-in-oklahoma-states-win-against-kansas-state/article_577bf928-e67e-11ef-9162-2f9c12fdee3b.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-02-09-gray-heard-asi-shine-in-oklahoma-states-win-against-kansas-state.html",
-      "wordCount": 390
+      "wordCount": 390,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-01-30-stailee-heard-continues-dominant-season-in-osus-83-71-win-against-arizona-state",
@@ -494,7 +568,8 @@
       "waybackUrl": "https://web.archive.org/web/20250803104443/https://www.ocolly.com/sports/womens_basketball/stailee-heard-continues-dominant-season-in-osus-83-71-win-against-arizona-state/article_a395489e-dec4-11ef-b6e0-f370865c7149.html",
       "status": "wayback",
       "fulltext": "fulltext/2025-01-30-stailee-heard-continues-dominant-season-in-osus-83-71-win-against-arizona-state.html",
-      "wordCount": 310
+      "wordCount": 310,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2025-01-09-oklahoma-state-womens-basketball-bounces-back-defeats-cincinnati-64-48",
@@ -511,7 +586,9 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2025-01-09-oklahoma-state-womens-basketball-bounces-back-defeats-cincinnati-64-48.html",
-      "wordCount": 375
+      "wordCount": 375,
+      "live": true,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-12-17-three-takeaways-osus-bench-scoring-defense-leads-cowgirls-past-mcneese-state-in-blowout-win",
@@ -528,7 +605,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2024-12-17-three-takeaways-osus-bench-scoring-defense-leads-cowgirls-past-mcneese-state-in-blowout-win.html",
-      "wordCount": 473
+      "wordCount": 473,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-12-07-stailee-heard-propels-cowgirls-to-record-125-49-win-over-alabama-state",
@@ -545,7 +623,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2024-12-07-stailee-heard-propels-cowgirls-to-record-125-49-win-over-alabama-state.html",
-      "wordCount": 322
+      "wordCount": 322,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-11-30-headset-check-missed-fourth-down-conversion-kills-any-chance-of-osu-offensive-momentum",
@@ -562,7 +641,8 @@
       "waybackUrl": "https://web.archive.org/web/20250802225910/https://www.ocolly.com/sports/football/headset-check-missed-fourth-down-conversion-kills-any-chance-of-osu-offensive-momentum/article_70989440-af4a-11ef-b37d-4b2353ed9d21.html",
       "status": "wayback",
       "fulltext": "fulltext/2024-11-30-headset-check-missed-fourth-down-conversion-kills-any-chance-of-osu-offensive-momentum.html",
-      "wordCount": 139
+      "wordCount": 139,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-11-25-headset-check-ollie-gordon-ii-pass-puts-osu-in-position-to-find-the-end-zone",
@@ -579,7 +659,8 @@
       "waybackUrl": "https://web.archive.org/web/20260707225414/https://www.ocolly.com/sports/football/headset-check-ollie-gordon-ii-pass-puts-osu-in-position-to-find-the-end-zone/article_f742596c-aae6-11ef-97ec-7fe3f9295ae2.html",
       "status": "wayback",
       "fulltext": "fulltext/2024-11-25-headset-check-ollie-gordon-ii-pass-puts-osu-in-position-to-find-the-end-zone.html",
-      "wordCount": 123
+      "wordCount": 123,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-11-11-headset-check-osu-freshman-quarterback-maealiuaki-smith-seeing-the-field-against-tcu",
@@ -596,7 +677,8 @@
       "waybackUrl": "https://web.archive.org/web/20241128001149/https://www.ocolly.com/sports/football/headset-check-osu-freshman-quarterback-maealiuaki-smith-seeing-the-field-against-tcu/article_459b612c-a032-11ef-a657-57250e6e7d48.html",
       "status": "wayback",
       "fulltext": "fulltext/2024-11-11-headset-check-osu-freshman-quarterback-maealiuaki-smith-seeing-the-field-against-tcu.html",
-      "wordCount": 238
+      "wordCount": 238,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-11-03-headset-check-osus-second-half-timeout-leads-to-asu-touchdown",
@@ -613,7 +695,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2024-11-03-headset-check-osus-second-half-timeout-leads-to-asu-touchdown.html",
-      "wordCount": 241
+      "wordCount": 241,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-10-19-headset-check-brennan-presleys-16-yard-touchdown-pass-to-alan-bowman",
@@ -630,7 +713,8 @@
       "waybackUrl": "https://web.archive.org/web/20260707225938/https://www.ocolly.com/sports/football/headset-check-brennan-presleys-16-yard-touchdown-pass-to-alan-bowman/article_7639c3b8-8e3b-11ef-8061-33bdf957300e.html",
       "status": "wayback",
       "fulltext": "fulltext/2024-10-19-headset-check-brennan-presleys-16-yard-touchdown-pass-to-alan-bowman.html",
-      "wordCount": 228
+      "wordCount": 228,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-09-30-headset-check-osu-opting-for-the-conservative-route-against-kansas-state",
@@ -647,7 +731,8 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2024-09-30-headset-check-osu-opting-for-the-conservative-route-against-kansas-state.html",
-      "wordCount": 215
+      "wordCount": 215,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-09-22-headset-check-alan-bowman-benched-for-garret-rangel-against-utah",
@@ -664,7 +749,8 @@
       "waybackUrl": "https://web.archive.org/web/20241002204845/https://www.ocolly.com/sports/football/headset-check-alan-bowman-benched-for-garret-rangel-against-utah/article_104fc5a0-78fd-11ef-899a-13639b2abfe0.html",
       "status": "wayback",
       "fulltext": "fulltext/2024-09-22-headset-check-alan-bowman-benched-for-garret-rangel-against-utah.html",
-      "wordCount": 223
+      "wordCount": 223,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-09-15-headset-check-fourth-down-conversion-sets-up-osu-touchdown-against-tulsa",
@@ -681,7 +767,8 @@
       "waybackUrl": "https://web.archive.org/web/20240929025733/https://www.ocolly.com/sports/football/headset-check-fourth-down-conversion-sets-up-osu-touchdown-against-tulsa/article_9281e1b6-738a-11ef-a75d-fbf383f5468c.html",
       "status": "wayback",
       "fulltext": "fulltext/2024-09-15-headset-check-fourth-down-conversion-sets-up-osu-touchdown-against-tulsa.html",
-      "wordCount": 159
+      "wordCount": 159,
+      "lastChecked": "2026-07-23"
     },
     {
       "id": "2024-09-08-headset-check-cowboy-fullback-jake-schultzs-long-reception",
@@ -698,7 +785,9 @@
       "waybackUrl": "",
       "status": "indexed",
       "fulltext": "fulltext/2024-09-08-headset-check-cowboy-fullback-jake-schultzs-long-reception.html",
-      "wordCount": 138
+      "wordCount": 138,
+      "live": true,
+      "lastChecked": "2026-07-23"
     }
   ]
 }

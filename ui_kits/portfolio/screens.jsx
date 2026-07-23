@@ -90,7 +90,7 @@ function Home({ onNav }) {
       </Wrap>
 
       <Wrap style={{ marginTop: 'var(--space-8)' }}>
-        <SectionHeading kicker="Recent" title="More clips" />
+        <SectionHeading kicker="Recent" title="More stories" />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-5)', marginTop: 'var(--space-6)' }}>
           {(clips || []).slice(1, 4).map((c) => <ClipCard key={c.id} clip={c} />)}
         </div>

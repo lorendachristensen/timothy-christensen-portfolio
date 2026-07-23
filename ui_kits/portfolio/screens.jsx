@@ -193,7 +193,7 @@ function About() {
                 Timothy<br/>Christensen
               </h1>
               <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-lead)', lineHeight: 1.55, color: 'var(--ink-300)', marginTop: 'var(--space-5)' }}>
-                I'm a Sports Media major at Oklahoma State University and a staff writer for The O'Colly, OSU's independent student newspaper. I cover football, basketball, baseball and more — on the page.
+                I'm a Sports Media major at Oklahoma State University and a staff writer for The O'Colly, OSU's independent student newspaper. I cover football, basketball, baseball and more!
               </p>
               <div style={{ marginTop: 'var(--space-6)' }}><Button variant="primary">Download résumé</Button></div>
             </div>

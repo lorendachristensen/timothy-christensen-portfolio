@@ -41,8 +41,20 @@ const clean = (s) => (s || '').replace(/<!\[CDATA\[|\]\]>/g, '').replace(/&amp;/
 const pick = (block, tag) => { const m = block.match(new RegExp('<' + tag + '[^>]*>([\\s\\S]*?)<\\/' + tag + '>')); return m ? clean(m[1]) : ''; };
 const enc = (block) => { const m = block.match(/<enclosure[^>]*url="([^"]+)"/); return m ? clean(m[1]) : ''; };
 
-const KNOWN_SECTIONS = new Set(['football', 'womens_basketball', 'mens_basketball', 'baseball', 'golf', 'equestrian', 'wrestling']);
-const section = (url) => { const p = new URL(url).pathname.split('/').filter(Boolean); const ai = p.findIndex((x) => x.startsWith('article_')); const c = ai >= 2 ? p[ai - 2] : 'sports'; return KNOWN_SECTIONS.has(c) ? c : 'sports'; };
+// O'Colly URL sport-slug (the path segment before the article slug) -> our canonical category key.
+// Gendered and cross-country/track spelling variants fold onto one key so the display stays consistent.
+// Anything not listed here falls through to 'sports' (shown as "General") and can be retagged by hand.
+const SECTION_SLUGS = {
+  football: 'football',
+  mens_basketball: 'mens_basketball', womens_basketball: 'womens_basketball',
+  baseball: 'baseball', softball: 'softball',
+  golf: 'golf', mens_golf: 'golf', womens_golf: 'golf',
+  soccer: 'soccer', mens_soccer: 'soccer', womens_soccer: 'soccer',
+  tennis: 'tennis', mens_tennis: 'tennis', womens_tennis: 'tennis',
+  cross_country: 'track', track: 'track', track_and_field: 'track', track_field: 'track',
+  wrestling: 'wrestling', equestrian: 'equestrian',
+};
+const section = (url) => { const p = new URL(url).pathname.split('/').filter(Boolean); const ai = p.findIndex((x) => x.startsWith('article_')); const slug = ai >= 2 ? p[ai - 2] : ''; return SECTION_SLUGS[slug] || 'sports'; };
 const slug = (url) => { const p = new URL(url).pathname.split('/').filter(Boolean); const ai = p.findIndex((x) => x.startsWith('article_')); return p[ai - 1] || 'clip'; };
 const iso = (d) => new Date(d).toISOString().slice(0, 10);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms)); // politeness between requests

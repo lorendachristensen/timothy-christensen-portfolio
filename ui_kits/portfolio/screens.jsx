@@ -16,8 +16,11 @@ function useClips() {
   }, []);
   return clips;
 }
-const SECTION_LABEL = { football: 'Football', womens_basketball: "Women's Basketball", mens_basketball: "Men's Basketball", baseball: 'Baseball', equestrian: 'Equestrian', wrestling: 'Wrestling', sports: 'Sports' };
-const pretty = (s) => SECTION_LABEL[s] || 'Sports';
+const SECTION_LABEL = { football: 'Football', womens_basketball: "Women's Basketball", mens_basketball: "Men's Basketball", baseball: 'Baseball', golf: 'Golf', track: 'Cross Country/Track', equestrian: 'Equestrian', wrestling: 'Wrestling', sports: 'General' };
+const pretty = (s) => SECTION_LABEL[s] || 'General';
+// A clip's categories default to its single `section`; an optional `categories` array (of section keys) lets one article span multiple sports.
+const clipCats = (c) => (c.categories && c.categories.length ? c.categories : [c.section]).map(pretty);
+const CATEGORY_ORDER = ['Football', "Women's Basketball", "Men's Basketball", 'Baseball', 'Golf', 'Cross Country/Track', 'Equestrian', 'Wrestling', 'General'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const fmtDate = (iso) => { const p = (iso || '').split('-'); return p.length === 3 ? MONTHS[+p[1] - 1] + ' ' + p[0] : iso; };
 // link out to O'Colly while the URL is live; fall back to our archived copy when it 404s.
@@ -101,8 +104,9 @@ function Work() {
   const clips = useClips();
   const [filter, setFilter] = React.useState('All');
   if (!clips) return <Wrap style={{ paddingTop: 'var(--space-8)' }}><SectionHeading kicker="Portfolio" title="Published work" /><p style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginTop: 'var(--space-5)' }}>Loading clips…</p></Wrap>;
-  const cats = ['All', ...Array.from(new Set(clips.map((c) => pretty(c.section))))];
-  const shown = filter === 'All' ? clips : clips.filter((c) => pretty(c.section) === filter);
+  const present = new Set(clips.flatMap(clipCats));
+  const cats = ['All', ...CATEGORY_ORDER.filter((x) => present.has(x)), ...[...present].filter((x) => !CATEGORY_ORDER.includes(x)).sort()];
+  const shown = filter === 'All' ? clips : clips.filter((c) => clipCats(c).includes(filter));
   return (
     <Wrap style={{ paddingTop: 'var(--space-8)' }}>
       <SectionHeading kicker="Portfolio" title="Published work" />
@@ -181,7 +185,7 @@ function Article({ onNav }) {
 function About() {
   const clips = useClips();
   const count = clips ? clips.length : 40;
-  const sports = clips ? new Set(clips.map((c) => pretty(c.section))).size : 5;
+  const sports = clips ? new Set(clips.flatMap(clipCats).filter((x) => x !== 'General')).size : 5;
   return (
     <div>
       <div style={{ background: 'var(--ink-950)', color: 'var(--white)', paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}>

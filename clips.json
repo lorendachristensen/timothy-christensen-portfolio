@@ -24,7 +24,7 @@
       "id": "2026-07-22-preston-stout-named-preseason-no-1-by-pga-tour-university",
       "headline": "Preston Stout named preseason No. 1 by PGA Tour University",
       "date": "2026-07-22",
-      "section": "sports",
+      "section": "golf",
       "type": "article",
       "author": "Timothy Christensen",
       "url": "https://www.ocolly.com/sports/golf/preston-stout-named-preseason-no-1-by-pga-tour-university/article_2dc20f96-15b5-4391-9cf3-c79c70c3d50d.html",
@@ -43,7 +43,11 @@
       "id": "2026-07-22-osu-nominates-jepkirui-stout-for-big-12-athletes-of-the-year",
       "headline": "OSU nominates Jepkirui, Stout for Big 12 Athletes of the Year",
       "date": "2026-07-22",
-      "section": "sports",
+      "section": "golf",
+      "categories": [
+        "golf",
+        "track"
+      ],
       "type": "article",
       "author": "Timothy Christensen",
       "url": "https://www.ocolly.com/sports/golf/osu-nominates-jepkirui-stout-for-big-12-athletes-of-the-year/article_bd0c30d0-29b8-42cb-b609-8b52b8e4d949.html",

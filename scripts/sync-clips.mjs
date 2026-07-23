@@ -41,7 +41,7 @@ const clean = (s) => (s || '').replace(/<!\[CDATA\[|\]\]>/g, '').replace(/&amp;/
 const pick = (block, tag) => { const m = block.match(new RegExp('<' + tag + '[^>]*>([\\s\\S]*?)<\\/' + tag + '>')); return m ? clean(m[1]) : ''; };
 const enc = (block) => { const m = block.match(/<enclosure[^>]*url="([^"]+)"/); return m ? clean(m[1]) : ''; };
 
-const KNOWN_SECTIONS = new Set(['football', 'womens_basketball', 'mens_basketball', 'baseball', 'equestrian', 'wrestling']);
+const KNOWN_SECTIONS = new Set(['football', 'womens_basketball', 'mens_basketball', 'baseball', 'golf', 'equestrian', 'wrestling']);
 const section = (url) => { const p = new URL(url).pathname.split('/').filter(Boolean); const ai = p.findIndex((x) => x.startsWith('article_')); const c = ai >= 2 ? p[ai - 2] : 'sports'; return KNOWN_SECTIONS.has(c) ? c : 'sports'; };
 const slug = (url) => { const p = new URL(url).pathname.split('/').filter(Boolean); const ai = p.findIndex((x) => x.startsWith('article_')); return p[ai - 1] || 'clip'; };
 const iso = (d) => new Date(d).toISOString().slice(0, 10);

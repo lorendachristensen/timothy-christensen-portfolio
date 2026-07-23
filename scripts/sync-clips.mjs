@@ -102,9 +102,20 @@ ${body}
 </div></body></html>`;
 }
 
+const HEADERS = { 'User-Agent': UA, 'Accept': 'application/rss+xml, application/xml, text/xml, text/html;q=0.9, */*;q=0.8', 'Accept-Language': 'en-US,en;q=0.9' };
 async function fetchText(url) {
-  try { const r = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow' }); return { ok: r.ok, status: r.status, text: r.ok ? await r.text() : '' }; }
+  try { const r = await fetch(url, { headers: HEADERS, redirect: 'follow' }); return { ok: r.ok, status: r.status, text: r.ok ? await r.text() : '' }; }
   catch { return { ok: false, status: 0, text: '' }; }
+}
+// Retry transient failures (429 rate-limit, 5xx, network). Hard client errors (403/404/…) are not retried.
+async function fetchTextRetry(url, tries = 3) {
+  let r;
+  for (let i = 0; i < tries; i++) {
+    r = await fetchText(url);
+    if (r.ok || (r.status && r.status !== 429 && r.status < 500)) return r;
+    if (i < tries - 1) await sleep(3000 * (i + 1)); // 3s, then 6s
+  }
+  return r;
 }
 
 // ---------- run ----------
@@ -112,10 +123,14 @@ const data = JSON.parse(readFileSync(CLIPS, 'utf8'));
 const known = new Set(data.clips.map((c) => c.url));
 
 // 1) DISCOVER
-const feed = await fetchText(FEED);
-if (!feed.ok) { console.error('RSS fetch failed:', feed.status); process.exit(1); }
+const feed = await fetchTextRetry(FEED);
 let added = 0;
-for (const b of [...feed.text.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => m[1])) {
+if (!feed.ok) {
+  // A blocked/rate-limited feed (429 from a datacenter IP, transient 5xx) must NOT fail the whole
+  // run — archive + heal still work, and discovery resumes on a later run. Surface it as a warning.
+  console.warn(`::warning::RSS discovery unavailable (HTTP ${feed.status || 'network error'}) — skipping new-clip discovery this run.`);
+}
+for (const b of (feed.ok ? [...feed.text.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => m[1]) : [])) {
   const author = pick(b, 'dc:creator'); const url = pick(b, 'link');
   if (!/timothy christensen/i.test(author) || !url.includes('/article_') || known.has(url)) continue;
   const date = iso(pick(b, 'pubDate')); const id = date + '-' + slug(url); const imageUrlRemote = enc(b);

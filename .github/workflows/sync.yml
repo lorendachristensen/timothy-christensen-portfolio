@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       - name: Pull new clips from O'Colly RSS
         run: node scripts/sync-clips.mjs
       - name: Commit & push if anything changed

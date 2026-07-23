@@ -223,7 +223,7 @@ function About() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-8)', marginTop: 'var(--space-7)' }}>
           <div>
             <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, textTransform: 'uppercase', fontSize: 'var(--fs-display-s)', margin: '0 0 var(--space-4)' }}>Experience</h3>
-            {[['Staff Writer', "The O'Colly", '2024 — Present'], ['Contributor', 'OSU Athletics Media', '2025'], ['Sports Desk Intern', 'Stillwater News Press', 'Summer 2025']].map((r, i) => (
+            {[['Staff Writer', "The O'Colly", '2024 — Present']].map((r, i) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: 'var(--space-3) 0', borderBottom: '1px solid var(--border)' }}>
                 <div>
                   <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, color: 'var(--text-strong)' }}>{r[0]}</div>

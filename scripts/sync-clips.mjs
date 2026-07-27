@@ -55,6 +55,18 @@ const SECTION_SLUGS = {
   wrestling: 'wrestling', equestrian: 'equestrian',
 };
 const section = (url) => { const p = new URL(url).pathname.split('/').filter(Boolean); const ai = p.findIndex((x) => x.startsWith('article_')); const slug = ai >= 2 ? p[ai - 2] : ''; return SECTION_SLUGS[slug] || 'sports'; };
+// The RSS feed carries only ONE section (the story's canonical URL), but O'Colly files stories under
+// every relevant section and lists them all in the article page's <meta name="news_keywords"/"keywords">.
+// Read that from the archived page HTML and return the primary section + any extra recognized sections
+// (deduped, primary first), or null when the story is single-section. Lets one story land in several chips.
+const catsFromKeywords = (html, primary) => {
+  const tag = html.match(/<meta[^>]*\bname=["'](?:news_keywords|keywords)["'][^>]*>/i);
+  const cm = tag && tag[0].match(/content=["']([^"']*)["']/i);
+  if (!cm) return null;
+  const extra = cm[1].split(',').map((s) => SECTION_SLUGS[s.trim().toLowerCase()]).filter(Boolean);
+  const all = [primary, ...extra].filter((v, i, a) => v && a.indexOf(v) === i);
+  return all.length > 1 ? all : null;
+};
 const slug = (url) => { const p = new URL(url).pathname.split('/').filter(Boolean); const ai = p.findIndex((x) => x.startsWith('article_')); return p[ai - 1] || 'clip'; };
 const iso = (d) => new Date(d).toISOString().slice(0, 10);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms)); // politeness between requests
@@ -160,6 +172,7 @@ for (const c of data.clips) {
   if (archived >= BACKFILL_LIMIT) break;
   const a = await fetchText(c.url);
   if (!a.ok) { console.log('ARCHIVE skip (' + a.status + ') ' + c.id); continue; }
+  if (!c.categories) { const cc = catsFromKeywords(a.text, c.section); if (cc) { c.categories = cc; console.log('CATS ' + cc.join(' + ') + '  ' + c.id); } } // multi-section stories -> all chips
   const { paras, credit } = extractArticle(a.text);
   if (!paras.length) { console.log('ARCHIVE no-body ' + c.id); continue; }
   if (credit && !c.photoCredit) c.photoCredit = credit;

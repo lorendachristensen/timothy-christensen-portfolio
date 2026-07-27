@@ -25,6 +25,10 @@
       "headline": "Bedlam basketball returns to Paycom Center in December",
       "date": "2026-07-25",
       "section": "mens_basketball",
+      "categories": [
+        "mens_basketball",
+        "womens_basketball"
+      ],
       "type": "article",
       "author": "Timothy Christensen",
       "url": "https://www.ocolly.com/sports/mens_basketball/bedlam-basketball-returns-to-paycom-center-in-december/article_1979de4a-a468-40ea-ac38-dabaecbffeda.html",

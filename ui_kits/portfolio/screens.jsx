@@ -75,7 +75,7 @@ function Home({ onNav }) {
       <Wrap style={{ marginTop: 'var(--space-8)' }}>
         <SectionHeading kicker="Featured" title="Latest story" action={<Button variant="ghost" size="sm" onClick={() => onNav('Work')}>All work</Button>} />
         {lead && (
-          <a href={clipHref(lead)} target="_blank" rel="noopener noreferrer" className="tc-grid-feature" style={{ display: 'grid', gap: 'var(--space-6)', marginTop: 'var(--space-6)', textDecoration: 'none', color: 'inherit', alignItems: 'stretch' }}>
+          <a href={clipHref(lead)} target="_blank" rel="noopener noreferrer" className="tc-grid-feature" style={{ display: 'grid', gap: 'var(--space-6)', marginTop: 'var(--space-6)', textDecoration: 'none', color: 'inherit', alignItems: 'start' }}>
             <div style={{ aspectRatio: '16/10', background: clipImg(lead) ? `#000 center/cover url("${clipImg(lead)}")` : 'var(--ink-100)', border: '2px solid var(--ink-950)', position: 'relative' }}>
               <div style={{ position: 'absolute', top: '14px', left: '14px' }}><Tag kind="article">Article</Tag></div>
             </div>

@@ -11,6 +11,25 @@
 <style>
   html,body{margin:0;background:var(--bg-page);}
   a{color:var(--brand);} a:hover{color:var(--brand-hover);}
+
+  /* ---- Responsive layout (classNames applied in Nav.jsx / screens.jsx) ---- */
+  .tc-grid-cards   { grid-template-columns: repeat(3, 1fr); }   /* Home "More stories" + Work grid */
+  .tc-grid-feature { grid-template-columns: 1.2fr 1fr; }        /* Home "Latest story" */
+  .tc-grid-2       { grid-template-columns: 1fr 1fr; }          /* About hero + Experience/Skills */
+
+  @media (max-width: 900px) {
+    .tc-grid-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 760px) {
+    .tc-grid-feature, .tc-grid-2 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .tc-grid-cards { grid-template-columns: 1fr; }
+    /* keep the sticky nav on one line on phones */
+    .tc-nav-mark { font-size: 18px !important; }
+    .tc-nav      { gap: 16px !important; }
+    .tc-nav a    { font-size: 12px !important; }
+  }
 </style>
 </head>
 <body>

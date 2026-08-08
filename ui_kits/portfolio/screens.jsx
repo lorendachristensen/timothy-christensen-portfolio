@@ -75,7 +75,7 @@ function Home({ onNav }) {
       <Wrap style={{ marginTop: 'var(--space-8)' }}>
         <SectionHeading kicker="Featured" title="Latest story" action={<Button variant="ghost" size="sm" onClick={() => onNav('Work')}>All work</Button>} />
         {lead && (
-          <a href={clipHref(lead)} target="_blank" rel="noopener noreferrer" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 'var(--space-6)', marginTop: 'var(--space-6)', textDecoration: 'none', color: 'inherit', alignItems: 'stretch' }}>
+          <a href={clipHref(lead)} target="_blank" rel="noopener noreferrer" className="tc-grid-feature" style={{ display: 'grid', gap: 'var(--space-6)', marginTop: 'var(--space-6)', textDecoration: 'none', color: 'inherit', alignItems: 'stretch' }}>
             <div style={{ aspectRatio: '16/10', background: clipImg(lead) ? `#000 center/cover url("${clipImg(lead)}")` : 'var(--ink-100)', border: '2px solid var(--ink-950)', position: 'relative' }}>
               <div style={{ position: 'absolute', top: '14px', left: '14px' }}><Tag kind="article">Article</Tag></div>
             </div>
@@ -91,7 +91,7 @@ function Home({ onNav }) {
 
       <Wrap style={{ marginTop: 'var(--space-8)' }}>
         <SectionHeading kicker="Recent" title="More stories" />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-5)', marginTop: 'var(--space-6)' }}>
+        <div className="tc-grid-cards" style={{ display: 'grid', gap: 'var(--space-5)', marginTop: 'var(--space-6)' }}>
           {(clips || []).slice(1, 4).map((c) => <ClipCard key={c.id} clip={c} />)}
         </div>
       </Wrap>
@@ -119,7 +119,7 @@ function Work() {
           }}>{f}</button>
         ))}
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-5)', marginTop: 'var(--space-6)' }}>
+      <div className="tc-grid-cards" style={{ display: 'grid', gap: 'var(--space-5)', marginTop: 'var(--space-6)' }}>
         {shown.map((c) => <ClipCard key={c.id} clip={c} />)}
       </div>
     </Wrap>
@@ -190,7 +190,7 @@ function About() {
     <div>
       <div style={{ background: 'var(--ink-950)', color: 'var(--white)', paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}>
         <Wrap>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-8)', alignItems: 'center' }}>
+          <div className="tc-grid-2" style={{ display: 'grid', gap: 'var(--space-8)', alignItems: 'center' }}>
             <div>
               <div style={{ marginBottom: 'var(--space-4)' }}><Kicker>About</Kicker></div>
               <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, textTransform: 'uppercase', fontSize: 'var(--fs-display-l)', lineHeight: 0.96, letterSpacing: '-0.01em', margin: 0 }}>
@@ -224,7 +224,7 @@ function About() {
           <StatBlock value="2024" label="First byline" />
           <StatBlock value="2028" label="Expected grad" />
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-8)', marginTop: 'var(--space-7)' }}>
+        <div className="tc-grid-2" style={{ display: 'grid', gap: 'var(--space-8)', marginTop: 'var(--space-7)' }}>
           <div>
             <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, textTransform: 'uppercase', fontSize: 'var(--fs-display-s)', margin: '0 0 var(--space-4)' }}>Experience</h3>
             {[['Staff Writer', "The O'Colly", '2024 — Present']].map((r, i) => (

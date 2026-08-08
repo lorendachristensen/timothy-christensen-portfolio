@@ -13,10 +13,10 @@ function Nav({ current, onNav }) {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
         <a onClick={() => onNav('Home')} style={{ display: 'flex', alignItems: 'baseline', gap: '2px', cursor: 'pointer', textDecoration: 'none' }}>
-          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '22px', textTransform: 'uppercase', letterSpacing: '-0.01em', color: 'var(--white)' }}>Timothy Christensen</span>
-          <span style={{ color: 'var(--brand)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '22px' }}>.</span>
+          <span className="tc-nav-mark" style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '22px', textTransform: 'uppercase', letterSpacing: '-0.01em', color: 'var(--white)' }}>Timothy Christensen</span>
+          <span className="tc-nav-mark" style={{ color: 'var(--brand)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '22px' }}>.</span>
         </a>
-        <nav style={{ display: 'flex', gap: 'var(--space-5)', alignItems: 'center' }}>
+        <nav className="tc-nav" style={{ display: 'flex', gap: 'var(--space-5)', alignItems: 'center' }}>
           {items.map((it) => (
             <a key={it} onClick={() => onNav(it)} style={{
               fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: 500,

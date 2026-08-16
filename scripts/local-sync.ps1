@@ -27,7 +27,20 @@ function LogBlock($text) {
 function Exec([string]$desc, [scriptblock]$cmd) { Log ">> $desc"; $global:LASTEXITCODE = 0; LogBlock (& $cmd 2>&1); return $LASTEXITCODE }
 
 function Main {
-  if ((Exec 'git pull --ff-only' { git pull --ff-only }) -ne 0) { Log 'ABORT: git pull failed'; return 1 }
+  if ((Exec 'git pull --ff-only' { git pull --ff-only }) -ne 0) {
+    # A prior run killed mid-sync can leave untracked images/fulltext files; when the remote later
+    # commits the same files, a fast-forward pull refuses to clobber them and the backstop jams every
+    # run after. Self-heal: move those untracked files aside (safe — the pull re-adds the committed
+    # copies, or the node run below regenerates anything genuinely new) and retry the pull once.
+    Log 'pull failed — moving untracked images/fulltext aside and retrying'
+    $leftovers = git ls-files --others --exclude-standard -- images fulltext 2>$null
+    if ($leftovers) {
+      $bak = Join-Path $env:TEMP ('tc-backstop-leftovers-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
+      New-Item -ItemType Directory -Force -Path $bak | Out-Null
+      foreach ($f in $leftovers) { Move-Item -LiteralPath $f -Destination (Join-Path $bak (Split-Path $f -Leaf)) -Force; Log "  moved aside: $f" }
+    }
+    if ((Exec 'git pull --ff-only (retry)' { git pull --ff-only }) -ne 0) { Log 'ABORT: git pull still failing after cleanup'; return 1 }
+  }
 
   # Run the sync; capture its output so we can both log it and pull out the discovered headlines.
   Log '>> node scripts/sync-clips.mjs'

@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 50,
+    "totalArticles": 51,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-09-01T16:02:35.590Z"
+    "lastSync": "2026-09-01T21:08:46.783Z"
   },
   "clips": [
+    {
+      "id": "2026-09-01-the-turnpike-classic-how-osu-vs-tulsa-has-become-a-real-rivalry",
+      "headline": "The Turnpike Classic: How OSU vs. Tulsa has become a real rivalry",
+      "date": "2026-09-01",
+      "section": "football",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/football/the-turnpike-classic-how-osu-vs-tulsa-has-become-a-real-rivalry/article_f7980812-c0c9-45e2-b7ba-3345d0ea3b30.html",
+      "excerpt": "Oklahoma State football’s trip to Tulsa this week has more meaning than it ever has before.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/7/0f/70fe1da2-5599-4ad9-804a-98f483e806b8/68ce01f988bec.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-09-01-the-turnpike-classic-how-osu-vs-tulsa-has-become-a-real-rivalry.jpg",
+      "photoCredit": "Kaytlyn Hayes",
+      "fulltext": "fulltext/2026-09-01-the-turnpike-classic-how-osu-vs-tulsa-has-become-a-real-rivalry.html",
+      "wordCount": 602,
+      "live": true,
+      "lastChecked": "2026-09-01",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-08-28-cowgirls-allow-four-unanswered-goals-in-4-1-loss-to-mississippi-state",
       "headline": "Cowgirls allow four unanswered goals in 4-1 loss to Mississippi State",

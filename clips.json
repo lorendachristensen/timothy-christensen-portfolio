@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 61,
+    "totalArticles": 62,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-09-30T17:36:18.292Z"
+    "lastSync": "2026-09-30T18:36:38.447Z"
   },
   "clips": [
+    {
+      "id": "2026-09-29-bruiser-benjamin-ahmed-preparing-for-jump-in-second-season-at-osu",
+      "headline": "‘Bruiser’: Benjamin Ahmed preparing for jump in second season at OSU",
+      "date": "2026-09-29",
+      "section": "mens_basketball",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/mens_basketball/bruiser-benjamin-ahmed-preparing-for-jump-in-second-season-at-osu/article_33f5be53-347f-4b95-b2d5-c18414f1e423.html",
+      "excerpt": "Forward Benjamin Ahmed brings consistency to an offseason of change for Oklahoma State men’s basketball.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/2/cd/2cd90cea-2f35-430c-b21e-c2d3fb70d161/6abc2062a0650.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-09-29-bruiser-benjamin-ahmed-preparing-for-jump-in-second-season-at-osu.jpg",
+      "photoCredit": "Andon Freitas",
+      "fulltext": "fulltext/2026-09-29-bruiser-benjamin-ahmed-preparing-for-jump-in-second-season-at-osu.html",
+      "wordCount": 443,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-09-27-osu-ranked-in-ap-poll-for-first-time-since-2024",
       "headline": "OSU ranked in AP Poll for first time since 2024",

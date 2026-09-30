@@ -127,8 +127,11 @@ ${body}
 }
 
 const HEADERS = { 'User-Agent': UA, 'Accept': 'application/rss+xml, application/xml, text/xml, text/html;q=0.9, */*;q=0.8', 'Accept-Language': 'en-US,en;q=0.9' };
+// Hard per-request timeout. Without it, a hung/half-open connection on a flaky network stalls the whole
+// run indefinitely (the scheduled task then gets killed at its 15-min limit and discovers nothing).
+const FETCH_TIMEOUT = 15000;
 async function fetchText(url) {
-  try { const r = await fetch(url, { headers: HEADERS, redirect: 'follow' }); return { ok: r.ok, status: r.status, text: r.ok ? await r.text() : '' }; }
+  try { const r = await fetch(url, { headers: HEADERS, redirect: 'follow', signal: AbortSignal.timeout(FETCH_TIMEOUT) }); return { ok: r.ok, status: r.status, text: r.ok ? await r.text() : '' }; }
   catch { return { ok: false, status: 0, text: '' }; }
 }
 // Retry transient failures (429 rate-limit, 5xx, network). Hard client errors (403/404/…) are not retried.
@@ -159,7 +162,7 @@ for (const b of (feed.ok ? [...feed.text.matchAll(/<item>([\s\S]*?)<\/item>/g)].
   if (!/timothy christensen/i.test(author) || !url.includes('/article_') || known.has(url)) continue;
   const date = iso(pick(b, 'pubDate')); const id = date + '-' + slug(url); const imageUrlRemote = enc(b);
   let localImage = '';
-  if (imageUrlRemote) { const ir = await fetch(imageUrlRemote.split('?')[0], { headers: { 'User-Agent': UA } }).catch(() => null); if (ir && ir.ok) { if (!existsSync(IMAGES)) mkdirSync(IMAGES, { recursive: true }); writeFileSync(join(IMAGES, id + '.jpg'), Buffer.from(await ir.arrayBuffer())); localImage = 'images/' + id + '.jpg'; } }
+  if (imageUrlRemote) { const ir = await fetch(imageUrlRemote.split('?')[0], { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(FETCH_TIMEOUT) }).catch(() => null); if (ir && ir.ok) { if (!existsSync(IMAGES)) mkdirSync(IMAGES, { recursive: true }); writeFileSync(join(IMAGES, id + '.jpg'), Buffer.from(await ir.arrayBuffer())); localImage = 'images/' + id + '.jpg'; } }
   data.clips.push({ id, headline: pick(b, 'title'), date, section: section(url), type: 'article', author: author.replace(/,\s*Staff Reporter$/i, '').trim(), url, excerpt: pick(b, 'description'), imageUrlRemote, localImage, photoCredit: '', fulltext: '', wordCount: 0, live: true, lastChecked: '', waybackUrl: '', status: 'indexed' });
   known.add(url); added++; console.log('DISCOVER + ' + date + '  ' + pick(b, 'title'));
 }
@@ -186,7 +189,7 @@ for (const c of data.clips) {
 // 3) HEAL — re-check link health (only 404/410 -> dead)
 if (!process.env.SKIP_LIVECHECK) {
   for (const c of data.clips) {
-    let r; try { r = await fetch(c.url, { method: 'HEAD', headers: { 'User-Agent': UA }, redirect: 'follow' }); } catch { r = null; }
+    let r; try { r = await fetch(c.url, { method: 'HEAD', headers: { 'User-Agent': UA }, redirect: 'follow', signal: AbortSignal.timeout(FETCH_TIMEOUT) }); } catch { r = null; }
     if (r && r.ok) c.live = true;
     else if (r && (r.status === 404 || r.status === 410)) { c.live = false; console.log('HEAL dead(' + r.status + ') -> fallback: ' + c.id); }
     // any other status/error: leave c.live unchanged (transient)

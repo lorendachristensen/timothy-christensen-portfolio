@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 62,
+    "totalArticles": 63,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-10-03T15:42:35.096Z"
+    "lastSync": "2026-10-03T17:03:38.387Z"
   },
   "clips": [
+    {
+      "id": "2026-10-03-osu-surrenders-lead-late-in-3-3-draw-with-arizona",
+      "headline": "OSU surrenders lead late in 3-3 draw with Arizona",
+      "date": "2026-10-03",
+      "section": "soccer",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/soccer/osu-surrenders-lead-late-in-3-3-draw-with-arizona/article_485fcd0b-84db-4d47-9459-65d4fbe3b9b6.html",
+      "excerpt": "A late Arizona penalty kick spoiled Oklahoma State's bid for a Big 12 victory in a high-scoring 3-3 draw Friday night.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/2/9a/29aeede2-f340-488e-bbfd-1e3b31e06276/6ac084b25ecb2.image.jpg?resize=300%2C167",
+      "localImage": "images/2026-10-03-osu-surrenders-lead-late-in-3-3-draw-with-arizona.jpg",
+      "photoCredit": "Kaitlyn Robertson",
+      "fulltext": "fulltext/2026-10-03-osu-surrenders-lead-late-in-3-3-draw-with-arizona.html",
+      "wordCount": 608,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-09-29-bruiser-benjamin-ahmed-preparing-for-jump-in-second-season-at-osu",
       "headline": "‘Bruiser’: Benjamin Ahmed preparing for jump in second season at OSU",

@@ -16,6 +16,13 @@ $ErrorActionPreference = 'Continue'
 $repo = 'C:\Users\timot\Claude\Projects\timothy-christensen-portfolio'
 $log  = Join-Path $repo 'scripts\local-sync.log'
 
+# The backstop's job is fast, reliable DISCOVERY. Skip the slow 62+ request link-health pass: on a flaky
+# network it can exceed the scheduled task's 15-min limit and get the whole run killed before it commits
+# (seen repeatedly as "run start" with no "run end"). Refresh link health with a manual full run instead.
+$env:SKIP_LIVECHECK = '1'
+# Never let git block on an interactive credential prompt — fail fast rather than hang to the kill limit.
+$env:GIT_TERMINAL_PROMPT = '0'
+
 function Log($m) { "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')  $m" | Add-Content -Path $log -Encoding utf8 }
 # Append captured command output, indented, one UTF-8 line each (blank lines dropped).
 function LogBlock($text) {

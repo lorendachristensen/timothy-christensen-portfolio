@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 63,
+    "totalArticles": 64,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-10-06T17:54:48.827Z"
+    "lastSync": "2026-10-07T15:12:37.971Z"
   },
   "clips": [
+    {
+      "id": "2026-10-07-defense-becomes-offseason-priority-for-cowboy-basketball",
+      "headline": "Defense becomes offseason priority for Cowboy basketball",
+      "date": "2026-10-07",
+      "section": "mens_basketball",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/mens_basketball/defense-becomes-offseason-priority-for-cowboy-basketball/article_e640f968-6384-43c1-9979-0dccb1daca78.html",
+      "excerpt": "Despite boasting one of the Big 12's most productive offenses last season, Oklahoma State coaches and players know they need improvement heading into this season.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/7/fd/7fdfe8a0-c72c-4930-8bdf-24f51621340a/69ac8cec3dba8.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-10-07-defense-becomes-offseason-priority-for-cowboy-basketball.jpg",
+      "photoCredit": "Trey Creel",
+      "fulltext": "fulltext/2026-10-07-defense-becomes-offseason-priority-for-cowboy-basketball.html",
+      "wordCount": 507,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-10-03-osu-surrenders-lead-late-in-3-3-draw-with-arizona",
       "headline": "OSU surrenders lead late in 3-3 draw with Arizona",

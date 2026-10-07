@@ -30,11 +30,34 @@ function LogBlock($text) {
     if ($line.Trim() -ne '') { "     $line" | Add-Content -Path $log -Encoding utf8 }
   }
 }
-# Run a native command inside $cmd, log a header + its combined stdout/stderr, return its exit code.
+# Run a LOCAL (non-network) command inside $cmd; log a header + combined output; return its exit code.
 function Exec([string]$desc, [scriptblock]$cmd) { Log ">> $desc"; $global:LASTEXITCODE = 0; LogBlock (& $cmd 2>&1); return $LASTEXITCODE }
 
+# Run a NETWORK command (git pull/push, node) under a HARD timeout. On a flaky connection any of these can
+# hang with no output; without a cap the whole run stalls until the scheduled task's 15-min kill (seen as
+# "run start" with no "run end"). This kills the process tree after $timeoutSec and returns 124 so the run
+# continues and completes cleanly. Captured output is stashed in $script:LastOut for callers that need it.
+$script:LastOut = ''
+function ExecT([string]$desc, [string]$exe, [string[]]$argv, [int]$timeoutSec) {
+  Log ">> $desc"
+  $outF = [System.IO.Path]::GetTempFileName(); $errF = [System.IO.Path]::GetTempFileName()
+  $script:LastOut = ''
+  try {
+    $p = Start-Process -FilePath $exe -ArgumentList $argv -WorkingDirectory $repo -NoNewWindow -PassThru `
+         -RedirectStandardOutput $outF -RedirectStandardError $errF
+    $null = $p.Handle   # cache the handle so $p.ExitCode is readable after WaitForExit (PS 5.1 quirk)
+    $done = $p.WaitForExit($timeoutSec * 1000)
+    if (-not $done) { Start-Process taskkill -ArgumentList '/PID', $p.Id, '/T', '/F' -NoNewWindow -Wait -ErrorAction SilentlyContinue; Start-Sleep -Milliseconds 500 }
+    else { $p.WaitForExit() }   # no-arg wait flushes redirected output and finalizes ExitCode
+    $script:LastOut = (((Get-Content $outF -Raw -ErrorAction SilentlyContinue)) + "`n" + ((Get-Content $errF -Raw -ErrorAction SilentlyContinue)))
+    LogBlock $script:LastOut
+    if (-not $done) { Log "TIMEOUT: '$desc' exceeded ${timeoutSec}s - killed"; return 124 }
+    return [int]$p.ExitCode
+  } finally { Remove-Item $outF, $errF -Force -ErrorAction SilentlyContinue }
+}
+
 function Main {
-  if ((Exec 'git pull --ff-only' { git pull --ff-only }) -ne 0) {
+  if ((ExecT 'git pull --ff-only' 'git' @('pull','--ff-only') 60) -ne 0) {
     # A prior run killed mid-sync can leave untracked images/fulltext files; when the remote later
     # commits the same files, a fast-forward pull refuses to clobber them and the backstop jams every
     # run after. Self-heal: move those untracked files aside (safe — the pull re-adds the committed
@@ -46,16 +69,12 @@ function Main {
       New-Item -ItemType Directory -Force -Path $bak | Out-Null
       foreach ($f in $leftovers) { Move-Item -LiteralPath $f -Destination (Join-Path $bak (Split-Path $f -Leaf)) -Force; Log "  moved aside: $f" }
     }
-    if ((Exec 'git pull --ff-only (retry)' { git pull --ff-only }) -ne 0) { Log 'ABORT: git pull still failing after cleanup'; return 1 }
+    if ((ExecT 'git pull --ff-only (retry)' 'git' @('pull','--ff-only') 60) -ne 0) { Log 'ABORT: git pull still failing after cleanup'; return 1 }
   }
 
-  # Run the sync; capture its output so we can both log it and pull out the discovered headlines.
-  Log '>> node scripts/sync-clips.mjs'
-  $global:LASTEXITCODE = 0
-  $syncOut = (& { node scripts/sync-clips.mjs } 2>&1 | Out-String)
-  $syncRc  = $LASTEXITCODE
-  LogBlock $syncOut
-  if ($syncRc -ne 0) { Log "note: sync exited $syncRc (continuing to check for content)" }
+  # Run the sync under a hard timeout; $script:LastOut holds its output for the headline summary below.
+  if ((ExecT 'node scripts/sync-clips.mjs' 'node' @('scripts/sync-clips.mjs') 180) -ne 0) { Log 'note: sync returned non-zero (continuing to check for content)' }
+  $syncOut = $script:LastOut
 
   # Real new content = new image/fulltext files, or clips.json changes beyond the lastSync/lastChecked bump.
   $untracked = git ls-files --others --exclude-standard -- images fulltext 2>$null
@@ -74,19 +93,23 @@ function Main {
   }
   Exec 'git add'    { git add clips.json images fulltext } | Out-Null
   Exec 'git commit' { git commit -m "chore: sync new O'Colly clips (local backstop) [skip ci]" } | Out-Null
-  $pushRc = Exec 'git push' { git push }
+  $pushRc = ExecT 'git push' 'git' @('push') 120
   if ($pushRc -ne 0) {                                    # remote advanced (CI pushed) — rebase and retry once
-    Log 'push rejected — rebasing and retrying'
-    Exec 'git pull --rebase' { git pull --rebase } | Out-Null
-    $pushRc = Exec 'git push (retry)' { git push }
+    Log 'push rejected/timed out — rebasing and retrying'
+    ExecT 'git pull --rebase' 'git' @('pull','--rebase') 60 | Out-Null
+    $pushRc = ExecT 'git push (retry)' 'git' @('push') 120
   }
   if ($pushRc -eq 0) { Log 'DONE: pushed new clips'; return 0 }
-  Log 'ERROR: push failed'; return 1
+  Log 'ERROR: push failed/timed out (will retry next run)'; return 1
 }
 
 # Task Scheduler starts with a minimal PATH — pull in the machine/user PATH so node + git resolve.
 $env:Path = [System.Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path','User')
 Set-Location $repo
+# Make git itself abort a stalled HTTPS transfer (< 1 KB/s for 25s) instead of hanging on a half-open
+# connection — complements the ExecT wrapper's hard timeout. Local config writes; harmless if repeated.
+git config http.lowSpeedLimit 1000 2>$null
+git config http.lowSpeedTime 25 2>$null
 
 Log '==== run start ===='
 $code = 1

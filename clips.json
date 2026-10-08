@@ -14,10 +14,10 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 64,
+    "totalArticles": 65,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-10-07T18:25:35.226Z"
+    "lastSync": "2026-10-08T15:10:20.009Z"
   },
   "clips": [
     {
@@ -36,6 +36,25 @@
       "wordCount": 507,
       "live": true,
       "lastChecked": "2026-10-07",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
+    {
+      "id": "2026-10-07-ucf-quarterback-uncertainty-adds-another-layer-to-osu-matchup",
+      "headline": "UCF quarterback uncertainty adds another layer to OSU matchup",
+      "date": "2026-10-07",
+      "section": "football",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/football/ucf-quarterback-uncertainty-adds-another-layer-to-osu-matchup/article_6297391d-0760-48a0-a4c9-3e1e99b7b1a4.html",
+      "excerpt": "UCF could field multiple quarterbacks when they travel to Stillwater to face off against Oklahoma State.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/9/04/90437751-d831-4b03-afc4-733e44f9686b/6ac6b1ace8ac6.image.webp?resize=300%2C200",
+      "localImage": "images/2026-10-07-ucf-quarterback-uncertainty-adds-another-layer-to-osu-matchup.jpg",
+      "photoCredit": "Courtesy of UCF Athletics",
+      "fulltext": "fulltext/2026-10-07-ucf-quarterback-uncertainty-adds-another-layer-to-osu-matchup.html",
+      "wordCount": 506,
+      "live": true,
+      "lastChecked": "",
       "waybackUrl": "",
       "status": "indexed"
     },

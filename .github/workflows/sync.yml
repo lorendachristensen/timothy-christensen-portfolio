@@ -7,7 +7,7 @@ name: Sync O'Colly clips
 
 on:
   schedule:
-    - cron: '0 12 * * *'   # 12:00 UTC daily (~6-7am Central)
+    - cron: '0 */4 * * *'   # every 4 hours — new clips appear within a few hours, hands-off
   workflow_dispatch:
 
 permissions:
@@ -22,6 +22,11 @@ jobs:
         with:
           node-version: '24'
       - name: Pull new clips from O'Colly RSS
+        env:
+          # Residential relay so O'Colly's CDN doesn't 429 GitHub's datacenter IPs. Add SCRAPER_API_KEY
+          # as a repo Actions secret; without it this step runs direct and O'Colly will rate-limit it.
+          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
+          SKIP_LIVECHECK: '1'   # skip the per-clip link-health pass in CI (saves relay credits)
         run: node scripts/sync-clips.mjs
       - name: Commit & push if anything changed
         run: |

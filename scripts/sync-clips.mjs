@@ -30,6 +30,20 @@ const FEED = 'https://www.ocolly.com/search/?f=rss&sd=desc&l=50&nsa=eedition&q=T
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36';
 const BACKFILL_LIMIT = parseInt(process.env.BACKFILL_LIMIT || '6', 10);
 
+// O'Colly's CDN rate-limits (HTTP 429) datacenter IPs like GitHub Actions, which is why cloud discovery
+// kept failing. When a scraping relay is configured, route the feed + article-page fetches through its
+// residential IPs so discovery works from the cloud with no laptop involved. Configure EITHER:
+//   SCRAPER_API_KEY   — a ScraperAPI key (simplest: just the key), or
+//   OCOLLY_FETCH_PROXY — a URL template containing {{url}} (any provider).
+// With neither set, requests go direct (local/residential runs, where O'Colly isn't blocked).
+const PROXY_KEY  = process.env.SCRAPER_API_KEY || '';
+const PROXY_TMPL = process.env.OCOLLY_FETCH_PROXY || '';
+const PROXIED = !!(PROXY_KEY || PROXY_TMPL);
+const viaProxy = (url) =>
+  PROXY_KEY  ? 'https://api.scraperapi.com/?api_key=' + PROXY_KEY + '&url=' + encodeURIComponent(url)
+  : PROXY_TMPL ? PROXY_TMPL.replace('{{url}}', encodeURIComponent(url))
+  : url;
+
 const ents = (s) => s
   .replace(/&#8217;|&#x2019;/g, '’').replace(/&#8216;/g, '‘')
   .replace(/&#8220;/g, '“').replace(/&#8221;/g, '”')
@@ -131,7 +145,9 @@ const HEADERS = { 'User-Agent': UA, 'Accept': 'application/rss+xml, application/
 // run indefinitely (the scheduled task then gets killed at its 15-min limit and discovers nothing).
 const FETCH_TIMEOUT = 15000;
 async function fetchText(url) {
-  try { const r = await fetch(url, { headers: HEADERS, redirect: 'follow', signal: AbortSignal.timeout(FETCH_TIMEOUT) }); return { ok: r.ok, status: r.status, text: r.ok ? await r.text() : '' }; }
+  const target = viaProxy(url);
+  const timeout = PROXIED ? 70000 : FETCH_TIMEOUT;   // the relay fetches server-side, so allow it longer
+  try { const r = await fetch(target, { headers: HEADERS, redirect: 'follow', signal: AbortSignal.timeout(timeout) }); return { ok: r.ok, status: r.status, text: r.ok ? await r.text() : '' }; }
   catch { return { ok: false, status: 0, text: '' }; }
 }
 // Retry transient failures (429 rate-limit, 5xx, network). Hard client errors (403/404/…) are not retried.

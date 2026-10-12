@@ -23,10 +23,11 @@ jobs:
           node-version: '24'
       - name: Pull new clips from O'Colly RSS
         env:
-          # Residential relay so O'Colly's CDN doesn't 429 GitHub's datacenter IPs. Add SCRAPER_API_KEY
-          # as a repo Actions secret; without it this step runs direct and O'Colly will rate-limit it.
-          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
-          SKIP_LIVECHECK: '1'   # skip the per-clip link-health pass in CI (saves relay credits)
+          # Fetch O'Colly through the site's own free Vercel relay (api/ocolly-proxy): the request then
+          # comes from Vercel's IP, which O'Colly serves, instead of GitHub's, which it 429s. No secret —
+          # the relay is locked to ocolly.com. The {{url}} placeholder is filled in by sync-clips.mjs.
+          OCOLLY_FETCH_PROXY: 'https://www.timothy-christensen.com/api/ocolly-proxy?url={{url}}'
+          SKIP_LIVECHECK: '1'   # skip the per-clip link-health pass in CI (keeps runs fast)
         run: node scripts/sync-clips.mjs
       - name: Commit & push if anything changed
         run: |

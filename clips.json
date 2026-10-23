@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 69,
+    "totalArticles": 70,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-10-23T08:58:55.325Z"
+    "lastSync": "2026-10-23T16:12:51.368Z"
   },
   "clips": [
+    {
+      "id": "2026-10-23-oklahoma-state-equestrian-extends-larry-sanchez-through-2031",
+      "headline": "Oklahoma State equestrian extends Larry Sanchez through 2031",
+      "date": "2026-10-23",
+      "section": "equestrian",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/equestrian/oklahoma-state-equestrian-extends-larry-sanchez-through-2031/article_dde26c11-fb95-43bf-8984-ad0b3b815412.html",
+      "excerpt": "Oklahoma State equestrian head coach Larry Sanchez has agreed to a contract extension that keeps him in Stillwater through the 2030-31 season.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/2/f3/2f3fd536-7bbe-11ef-a5c8-f7413b704ac5/66f4e2bc98630.image.jpg?resize=300%2C168",
+      "localImage": "images/2026-10-23-oklahoma-state-equestrian-extends-larry-sanchez-through-2031.jpg",
+      "photoCredit": "Courtesy OSU Athletics",
+      "fulltext": "fulltext/2026-10-23-oklahoma-state-equestrian-extends-larry-sanchez-through-2031.html",
+      "wordCount": 222,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-10-18-headset-check-fourth-down-outcomes-hurt-osu",
       "headline": "Headset Check: Fourth-down outcomes hurt OSU",

@@ -14,10 +14,10 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 70,
+    "totalArticles": 71,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-10-23T22:47:50.048Z"
+    "lastSync": "2026-10-24T02:45:20.527Z"
   },
   "clips": [
     {
@@ -34,6 +34,25 @@
       "photoCredit": "Courtesy OSU Athletics",
       "fulltext": "fulltext/2026-10-23-oklahoma-state-equestrian-extends-larry-sanchez-through-2031.html",
       "wordCount": 222,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
+    {
+      "id": "2026-10-23-kashie-natt-shines-in-exhibition-win-over-tulsa",
+      "headline": "Kashie Natt shines in exhibition win over Tulsa",
+      "date": "2026-10-23",
+      "section": "mens_basketball",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/mens_basketball/kashie-natt-shines-in-exhibition-win-over-tulsa/article_6fbf3c80-b10e-4af7-afeb-0da7251f7214.html",
+      "excerpt": "Sam Houston transfer Kashie Natt took the opportunity to showcase his talents in Oklahoma State’s 93-85 exhibition win over Tulsa.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/c/37/c3762d64-2d0e-441a-82cc-33fb9612b632/6adbc5a27ff4a.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-10-23-kashie-natt-shines-in-exhibition-win-over-tulsa.jpg",
+      "photoCredit": "Catherine Dzanski",
+      "fulltext": "fulltext/2026-10-23-kashie-natt-shines-in-exhibition-win-over-tulsa.html",
+      "wordCount": 398,
       "live": true,
       "lastChecked": "",
       "waybackUrl": "",

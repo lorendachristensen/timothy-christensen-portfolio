@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 71,
+    "totalArticles": 72,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-10-25T15:21:12.166Z"
+    "lastSync": "2026-10-25T18:39:30.961Z"
   },
   "clips": [
+    {
+      "id": "2026-10-25-headset-check-conservative-second-quarter-pays-off-for-cowboys",
+      "headline": "Headset Check: Conservative second quarter pays off for Cowboys",
+      "date": "2026-10-25",
+      "section": "football",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/football/headset-check-conservative-second-quarter-pays-off-for-cowboys/article_a1032b0a-f5b0-41a7-ae40-a6c6419caa93.html",
+      "excerpt": "Oklahoma State head coach Eric Morris showed a willingness to adapt in the Cowboys’ 57-24 homecoming win over Colorado.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/6/b2/6b20e7b8-94f9-4087-86bc-83e6752cb25a/6add55e7d11d9.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-10-25-headset-check-conservative-second-quarter-pays-off-for-cowboys.jpg",
+      "photoCredit": "Andon Freitas",
+      "fulltext": "fulltext/2026-10-25-headset-check-conservative-second-quarter-pays-off-for-cowboys.html",
+      "wordCount": 338,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-10-23-oklahoma-state-equestrian-extends-larry-sanchez-through-2031",
       "headline": "Oklahoma State equestrian extends Larry Sanchez through 2031",

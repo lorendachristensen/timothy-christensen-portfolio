@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 72,
+    "totalArticles": 73,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-10-29T23:44:13.359Z"
+    "lastSync": "2026-10-30T03:49:15.475Z"
   },
   "clips": [
+    {
+      "id": "2026-10-30-cowgirls-earn-first-road-win-stay-alive-in-big-12-tournament-race",
+      "headline": "Cowgirls earn first road win, stay alive in Big 12 tournament race",
+      "date": "2026-10-30",
+      "section": "soccer",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/soccer/cowgirls-earn-first-road-win-stay-alive-in-big-12-tournament-race/article_d96beed3-4519-4d4f-a1b2-c76a498b3783.html",
+      "excerpt": "The Cowgirls earn their first road win of the season, keeping postseason hopes alive.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/1/86/186f79bf-c5b0-4bb2-ac4f-e915d56c65e2/6ac856b23963b.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-10-30-cowgirls-earn-first-road-win-stay-alive-in-big-12-tournament-race.jpg",
+      "photoCredit": "",
+      "fulltext": "fulltext/2026-10-30-cowgirls-earn-first-road-win-stay-alive-in-big-12-tournament-race.html",
+      "wordCount": 376,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-10-25-headset-check-conservative-second-quarter-pays-off-for-cowboys",
       "headline": "Headset Check: Conservative second quarter pays off for Cowboys",

@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 75,
+    "totalArticles": 76,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-11-05T04:32:40.787Z"
+    "lastSync": "2026-11-05T15:58:19.917Z"
   },
   "clips": [
+    {
+      "id": "2026-11-04-energizer-bunny-kashie-natt-bringing-juice-to-cowboys",
+      "headline": "'Energizer Bunny' Kashie Natt bringing juice to Cowboys",
+      "date": "2026-11-04",
+      "section": "mens_basketball",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/mens_basketball/energizer-bunny-kashie-natt-bringing-juice-to-cowboys/article_bfd063f9-2c11-4bd5-97f7-4883d40c5436.html",
+      "excerpt": "Kashie Natt made his Oklahoma State debut Monday when the Cowboys played Incarnate Word, and he is already having an impact.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/c/01/c01ec8e6-0255-49f6-8d93-ce7525cee837/6adc427f16fc0.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-11-04-energizer-bunny-kashie-natt-bringing-juice-to-cowboys.jpg",
+      "photoCredit": "Matthew Miner",
+      "fulltext": "fulltext/2026-11-04-energizer-bunny-kashie-natt-bringing-juice-to-cowboys.html",
+      "wordCount": 528,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-11-01-headset-check-aggressive-special-teams-play-leads-to-isu-win",
       "headline": "Headset Check: Aggressive Special Teams play leads to ISU win",

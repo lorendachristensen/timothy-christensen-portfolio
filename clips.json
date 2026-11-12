@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 78,
+    "totalArticles": 79,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-11-12T12:01:57.615Z"
+    "lastSync": "2026-11-12T21:59:20.105Z"
   },
   "clips": [
+    {
+      "id": "2026-11-11-osu-receiver-justin-bowick-turns-long-journey-into-breakout-season",
+      "headline": "OSU receiver Justin Bowick turns long journey into breakout season",
+      "date": "2026-11-11",
+      "section": "football",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/football/osu-receiver-justin-bowick-turns-long-journey-into-breakout-season/article_1220be3b-f743-4b0e-be03-1d862b95bbd8.html",
+      "excerpt": "After stops at three previous programs, Oklahoma State wide receiver Justin Bowick finally found success in Stillwater.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/f/f5/ff5873ed-e495-4179-a7e0-78dbaabcaa15/6add55f154a98.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-11-11-osu-receiver-justin-bowick-turns-long-journey-into-breakout-season.jpg",
+      "photoCredit": "Andon Freitas",
+      "fulltext": "fulltext/2026-11-11-osu-receiver-justin-bowick-turns-long-journey-into-breakout-season.html",
+      "wordCount": 687,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-11-08-headset-check-eric-morris-gets-tricky-in-osus-blowout-win-over-k-state",
       "headline": "Headset Check: Eric Morris gets tricky in OSU's blowout win over K-State",

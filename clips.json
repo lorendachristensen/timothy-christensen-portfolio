@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 79,
+    "totalArticles": 80,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-11-15T15:09:57.714Z"
+    "lastSync": "2026-11-15T20:41:52.654Z"
   },
   "clips": [
+    {
+      "id": "2026-11-15-headset-check-osu-unable-to-generate-momentum-in-loss-to-texas-tech",
+      "headline": "Headset Check: OSU unable to generate momentum in loss to Texas Tech",
+      "date": "2026-11-15",
+      "section": "football",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/football/headset-check-osu-unable-to-generate-momentum-in-loss-to-texas-tech/article_97d39dbb-559a-4797-9df1-37ea60929af4.html",
+      "excerpt": "Oklahoma State was never able to overcome its sluggish start, falling to Texas Tech 52-27.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/8/92/892b05aa-ea58-44cc-af61-1dea5cae68a5/6af992f3278b3.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-11-15-headset-check-osu-unable-to-generate-momentum-in-loss-to-texas-tech.jpg",
+      "photoCredit": "Payton Little",
+      "fulltext": "fulltext/2026-11-15-headset-check-osu-unable-to-generate-momentum-in-loss-to-texas-tech.html",
+      "wordCount": 416,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-11-11-osu-receiver-justin-bowick-turns-long-journey-into-breakout-season",
       "headline": "OSU receiver Justin Bowick turns long journey into breakout season",

@@ -14,12 +14,31 @@
     "photoFields": "Per-clip image fields to capture: imageUrl (feature/lead photo — local or archived copy), imageCredit (the staff photographer, usually NOT Timothy), imageCaption (original caption text).",
     "photoCitationFormat": "Photo by {photographer} / The O'Colly.",
     "rightsNote": "Feature photos are shot by O'Colly staff photographers, not Timothy, and are copyright the photographer / O'Colly. On the live site, only display a feature photo WITH a visible credit line, and prefer small thumbnails that link to the original over large reproductions. Full-res photos stay in the private local archive only.",
-    "totalArticles": 80,
+    "totalArticles": 81,
     "source": "Rebuilt from O'Colly RSS feed (archive/ocolly-feed.rss) — f=rss on the search URL. Feed gives title, link, date, byline, summary, and feature-image URL for every clip, with no 429 (RSS is not behind the bot-block that walls off article pages). This is now the authoritative catalog.",
     "remaining": "Full article BODY text and specific photographer credit are NOT in RSS — get those from the ~20 Wayback snapshots (readable via curl) and/or an ArchiveWeb.page capture. Feature images downloadable from the townnews CDN (see localImage once fetched).",
-    "lastSync": "2026-11-22T12:10:39.315Z"
+    "lastSync": "2026-11-22T21:25:47.749Z"
   },
   "clips": [
+    {
+      "id": "2026-11-22-headset-check-osu-survives-arizona-state-s-fourth-down-perfection",
+      "headline": "Headset Check: OSU survives Arizona State’s fourth-down perfection",
+      "date": "2026-11-22",
+      "section": "football",
+      "type": "article",
+      "author": "Timothy Christensen",
+      "url": "https://www.ocolly.com/sports/football/headset-check-osu-survives-arizona-state-s-fourth-down-perfection/article_eb6addd3-a479-4041-bd63-a780f29bab90.html",
+      "excerpt": "Head coach Eric Morris and Oklahoma State overcame Arizona State’s success on all five fourth-down conversions in the Cowboys’ 30-27 overtime win.",
+      "imageUrlRemote": "https://bloximages.newyork1.vip.townnews.com/ocolly.com/content/tncms/assets/v3/editorial/d/18/d1891a73-9a26-479a-8bc0-c5053c3f3f8b/6ade0072d5dbb.image.jpg?resize=300%2C200",
+      "localImage": "images/2026-11-22-headset-check-osu-survives-arizona-state-s-fourth-down-perfection.jpg",
+      "photoCredit": "Chance Marick",
+      "fulltext": "fulltext/2026-11-22-headset-check-osu-survives-arizona-state-s-fourth-down-perfection.html",
+      "wordCount": 384,
+      "live": true,
+      "lastChecked": "",
+      "waybackUrl": "",
+      "status": "indexed"
+    },
     {
       "id": "2026-11-15-headset-check-osu-unable-to-generate-momentum-in-loss-to-texas-tech",
       "headline": "Headset Check: OSU unable to generate momentum in loss to Texas Tech",
